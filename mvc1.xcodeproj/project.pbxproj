@@ -15,6 +15,10 @@
 		5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387A247A65A700865D6B /* HomeViewController.swift */; };
 		5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387C247A65F500865D6B /* LoginViewController.swift */; };
 		5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387E247A660100865D6B /* SignUpViewController.swift */; };
+		5D2A3882247A748200865D6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A3881247A748200865D6B /* GoogleService-Info.plist */; };
+		5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3883247A750800865D6B /* AuthenticationService.swift */; };
+		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
+		5D2A3889247A81D500865D6B /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* ContentViewController.swift */; };
 		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,10 @@
 		5D2A387A247A65A700865D6B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D2A387C247A65F500865D6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5D2A387E247A660100865D6B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5D2A3881247A748200865D6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D2A3883247A750800865D6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		5D2A3888247A81D500865D6B /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
 		BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.release.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2A3861247A62D900865D6B /* AppDelegate.swift */,
+				5D2A3885247A775400865D6B /* Extensions */,
 				5D2A3875247A62E500865D6B /* Models */,
 				5D2A3876247A62EC00865D6B /* Views */,
 				5D2A3877247A62F400865D6B /* Controllers */,
@@ -75,6 +84,7 @@
 				5D2A386A247A62DA00865D6B /* Assets.xcassets */,
 				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
 				5D2A386F247A62DA00865D6B /* Info.plist */,
+				5D2A3881247A748200865D6B /* GoogleService-Info.plist */,
 			);
 			path = mvc1;
 			sourceTree = "<group>";
@@ -101,6 +111,7 @@
 				5D2A387A247A65A700865D6B /* HomeViewController.swift */,
 				5D2A387C247A65F500865D6B /* LoginViewController.swift */,
 				5D2A387E247A660100865D6B /* SignUpViewController.swift */,
+				5D2A3888247A81D500865D6B /* ContentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -108,8 +119,17 @@
 		5D2A3880247A702400865D6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5D2A3883247A750800865D6B /* AuthenticationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5D2A3885247A775400865D6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7A06A6EB5DD6ED9B6824B58E /* Frameworks */ = {
@@ -190,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2A386E247A62DA00865D6B /* LaunchScreen.storyboard in Resources */,
+				5D2A3882247A748200865D6B /* GoogleService-Info.plist in Resources */,
 				5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */,
 				5D2A3869247A62D900865D6B /* Main.storyboard in Resources */,
 			);
@@ -244,9 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2A3889247A81D500865D6B /* ContentViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
+				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
+				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
 			);
@@ -401,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mobilechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -421,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mobilechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

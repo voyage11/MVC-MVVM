@@ -7,5 +7,8 @@ target 'mvc1' do
 
   # Pods for mvc1
   pod 'SkyFloatingLabelTextField'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'SwiftMessages'
 
 end

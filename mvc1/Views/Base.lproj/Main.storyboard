@@ -112,8 +112,6 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Password"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                 <color key="value" red="0.14117647059999999" green="0.73333333329999995" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
@@ -139,6 +137,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="uHc-L1-Amg" eventType="touchUpInside" id="8Ej-mn-HkM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -152,10 +153,31 @@
                         <viewLayoutGuide key="safeArea" id="Vlc-fL-rM0"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEe-E7-PGb"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="21j-Uw-HtZ" id="9vx-tQ-dRQ"/>
+                        <outlet property="passwordTextField" destination="ww9-u6-mF4" id="dGo-e9-jRf"/>
+                        <segue destination="ZL6-Pq-Rmu" kind="show" identifier="showContentViewController" id="bG4-kM-wYt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSr-lN-LXo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="-115.17857142857142"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="xk7-Tz-hbb">
+            <objects>
+                <viewController id="ZL6-Pq-Rmu" customClass="ContentViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KJd-Uq-kPu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KFk-aW-IRb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hpO-Fd-qaW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5w-xS-RWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2825" y="248"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="lj2-gc-A8l">
@@ -221,6 +243,9 @@
                                         <state key="normal" title="Signup">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="WKD-eC-btl" eventType="touchUpInside" id="qEF-B4-ZcZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -234,6 +259,11 @@
                         <viewLayoutGuide key="safeArea" id="zVY-pe-TUf"/>
                     </view>
                     <navigationItem key="navigationItem" id="FEX-xr-H5q"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="du2-mx-7lb" id="6lk-vC-vdo"/>
+                        <outlet property="passwordTextField" destination="GS2-Hs-Zjx" id="NrV-bK-8Kg"/>
+                        <segue destination="ZL6-Pq-Rmu" kind="show" identifier="showContentViewController" id="fAr-3P-CbV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6l-Cg-8K4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,4 +288,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fAr-3P-CbV"/>
+    </inferredMetricsTieBreakers>
 </document>
