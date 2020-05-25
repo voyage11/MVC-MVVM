@@ -14,6 +14,7 @@ class TODOViewController: UIViewController {
     @IBOutlet weak var todoTableView: UITableView!
     
     var todoList = [TodoItem]()
+    var selectedRow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,20 +76,44 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TODOTableViewCell, for: indexPath) as! TODOTableViewCell
         let todoItem = todoList[indexPath.row]
-        
         cell.titleLabel.text = todoItem.title
         cell.descriptionLabel.text = todoItem.description
-        cell.dateLabel.text = "\(todoItem.date)"
-        
+        cell.dateLabel.text = todoItem.dateString()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedRow = indexPath.row
         performSegue(withIdentifier: K.Segue.showTODODetailsViewController, sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Complete") { _, indexPath in
+            let dataService = DataService()
+            if let id = self.todoList[indexPath.row].id {
+                dataService.deleteTodoItem(id: id) { [weak self] error in
+                    if let e = error {
+                        self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                    }
+                }
+            }
+        }
+        deleteAction.backgroundColor = .red
+        return [deleteAction]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segue.showTODODetailsViewController {
+            let viewController = segue.destination as! TODODetailsViewController
+            viewController.todoItem = todoList[selectedRow]
+        }
     }
     
 }

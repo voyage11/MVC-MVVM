@@ -56,8 +56,16 @@ struct DataService {
         }
     }
     
-    func deleteTodoItem() {
-        
+    func deleteTodoItem(id: String, completion: @escaping (_ errorMessage: String?) -> Void) {
+        db.collection(K.FStore.todolist)
+            .document(id)
+            .delete { error in
+                if let e = error {
+                    completion(e.localizedDescription)
+                } else {
+                    completion(nil)
+                }
+        }
     }
 
 }
