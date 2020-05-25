@@ -28,6 +28,7 @@
 		5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3883247A750800865D6B /* AuthenticationService.swift */; };
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
 		5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TODOViewController.swift */; };
+		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
 		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		5D2A3883247A750800865D6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5D2A3888247A81D500865D6B /* TODOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOViewController.swift; sourceTree = "<group>"; };
+		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
 		BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.release.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */,
+				5DCF2334247BDE190060872D /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
+				5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */,
 				5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

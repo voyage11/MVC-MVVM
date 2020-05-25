@@ -42,4 +42,8 @@ class TODODetailsViewController: UIViewController {
         }
     }
 
+    deinit {
+        print("TODODetailsViewController deinit")
+    }
+    
 }

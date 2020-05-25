@@ -325,33 +325,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="TODO Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-bF-10c" userLabel="todoTitleTextField">
-                                <rect key="frame" x="20" y="138" width="374" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KQ-gl-Nyq">
+                                <rect key="frame" x="20" y="113" width="374" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="LbX-fC-bSR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TODO Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-bF-10c" userLabel="todoTitleTextField">
+                                <rect key="frame" x="20" y="136" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wCa-GV-ZN5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="TODO Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="93i-a4-SDV" userLabel="todoDescriptionTextView">
-                                <rect key="frame" x="20" y="213" width="374" height="299"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syh-Kj-cHw">
+                                <rect key="frame" x="20" y="202" width="374" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="93i-a4-SDV" userLabel="todoDescriptionTextView">
+                                <rect key="frame" x="20" y="226" width="374" height="299"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="299" id="5vm-xH-bgP"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7Ah-bF-10c" firstAttribute="top" secondItem="CL0-rH-oPE" secondAttribute="top" constant="50" id="0Dl-Kc-cAQ"/>
+                            <constraint firstItem="7Ah-bF-10c" firstAttribute="top" secondItem="8KQ-gl-Nyq" secondAttribute="bottom" constant="6" id="4Qh-J1-SKI"/>
+                            <constraint firstItem="93i-a4-SDV" firstAttribute="top" secondItem="syh-Kj-cHw" secondAttribute="bottom" constant="6" id="Dde-nr-lVR"/>
+                            <constraint firstItem="syh-Kj-cHw" firstAttribute="top" secondItem="7Ah-bF-10c" secondAttribute="bottom" constant="16" id="Jie-vO-0w7"/>
+                            <constraint firstItem="CL0-rH-oPE" firstAttribute="trailing" secondItem="8KQ-gl-Nyq" secondAttribute="trailing" constant="20" id="aeO-jT-mDY"/>
+                            <constraint firstItem="CL0-rH-oPE" firstAttribute="trailing" secondItem="syh-Kj-cHw" secondAttribute="trailing" constant="20" id="axQ-Ne-OjY"/>
                             <constraint firstItem="CL0-rH-oPE" firstAttribute="trailing" secondItem="7Ah-bF-10c" secondAttribute="trailing" constant="20" id="gMl-Ii-9m7"/>
+                            <constraint firstItem="8KQ-gl-Nyq" firstAttribute="top" secondItem="CL0-rH-oPE" secondAttribute="top" constant="25" id="mUT-GV-9hg"/>
                             <constraint firstItem="7Ah-bF-10c" firstAttribute="leading" secondItem="CL0-rH-oPE" secondAttribute="leading" constant="20" id="ntg-HB-qv5"/>
-                            <constraint firstItem="93i-a4-SDV" firstAttribute="top" secondItem="7Ah-bF-10c" secondAttribute="bottom" constant="25" id="uMw-tp-zFA"/>
+                            <constraint firstItem="syh-Kj-cHw" firstAttribute="leading" secondItem="CL0-rH-oPE" secondAttribute="leading" constant="20" id="tQe-5F-gKc"/>
                             <constraint firstItem="93i-a4-SDV" firstAttribute="leading" secondItem="CL0-rH-oPE" secondAttribute="leading" constant="20" id="und-3V-2o1"/>
                             <constraint firstItem="CL0-rH-oPE" firstAttribute="trailing" secondItem="93i-a4-SDV" secondAttribute="trailing" constant="20" id="wkz-Yo-M4W"/>
+                            <constraint firstItem="8KQ-gl-Nyq" firstAttribute="leading" secondItem="CL0-rH-oPE" secondAttribute="leading" constant="20" id="xo1-SZ-y9t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CL0-rH-oPE"/>
                     </view>

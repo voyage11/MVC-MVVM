@@ -15,17 +15,43 @@ class AddTODOViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add TODO Item"
+        self.title = "Add a TODO Item"
+        todoTitleTextField.delegate = self
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
-        print("saveBarButtonTapped")
+        saveTodoItem()
+    }
+    
+    func saveTodoItem() {
         let dataService = DataService()
         let user = User()
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
-        dataService.addTodoItem(todoItem: todoItem) { error in
-            print("error: \(error)")
+        dataService.addTodoItem(todoItem: todoItem) { [weak self] error in
+            if let e = error {
+                self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+            } else {
+                self?.showMessage(title: "Success", message: "The TODO item is added.", errorBool: false, successBool: true)
+                DispatchQueue.main.async {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
         }
     }
+    
+    deinit {
+        print("AddTODOViewController deinit")
+    }
+    
+}
+
+extension AddTODOViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        todoDescriptionTextView.becomeFirstResponder()
+        return false
+    }
+    
+    
     
 }
