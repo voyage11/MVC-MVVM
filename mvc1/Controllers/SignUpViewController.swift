@@ -18,13 +18,21 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Signup"
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        fieldValidation()
+    }
+    
+    func fieldValidation() {
         if emailTextField.text == "" {
             showMessage(title: "Email Required", message: "Please enter your email.", errorBool: true, successBool: false)
-        } else if emailTextField.text == "" {
+            emailTextField.becomeFirstResponder()
+        } else if passwordTextField.text == "" {
             showMessage(title: "Password Required", message: "Please enter your password.", errorBool: true, successBool: false)
+            passwordTextField.becomeFirstResponder()
         } else {
             let autheticationModel = Authentication(email: emailTextField.text!, password: passwordTextField.text!)
             let authenticationService = AuthenticationService()
@@ -37,6 +45,18 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            fieldValidation()
+        }
+        return false
     }
     
 }
