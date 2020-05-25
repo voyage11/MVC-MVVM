@@ -41,9 +41,7 @@ class SignUpViewController: UIViewController {
                     self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
                 } else {
                     self?.showMessage(title: "Success", message: "Welcome Back!", errorBool: false, successBool: true)
-                    self?.performSegue(withIdentifier: "showContentViewController", sender: self)
-                    //TODO: Need to change to the new Window
-                    
+                    self?.moveToTODOViewController()
                 }
             }
         }

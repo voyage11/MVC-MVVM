@@ -17,9 +17,12 @@ struct AuthenticationService {
             if let e = error {
                 completion(e.localizedDescription)
             } else {
+                if let email = Auth.auth().currentUser?.email,
+                    let uid = Auth.auth().currentUser?.uid {
+                    var user = User()
+                    user.setEmailUid(email: email, uid: uid)
+                }
                 completion(nil)
-                //TODO: Somehow need to save a token locally
-                
             }
         }
     }
@@ -32,9 +35,12 @@ struct AuthenticationService {
                 print(e)
                 completion(e.localizedDescription)
             } else {
+                if let email = Auth.auth().currentUser?.email,
+                    let uid = Auth.auth().currentUser?.uid {
+                    var user = User()
+                    user.setEmailUid(email: email, uid: uid)
+                }
                 completion(nil)
-                //TODO: Somehow need to save a token?
-
             }
         }
     }

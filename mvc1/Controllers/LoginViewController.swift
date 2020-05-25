@@ -40,14 +40,14 @@ class LoginViewController: UIViewController {
                     self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
                 } else {
                     self?.showMessage(title: "Success", message: "Welcome Back!", errorBool: false, successBool: true)
-                    self?.performSegue(withIdentifier: "showContentViewController", sender: self)
+                    self?.moveToTODOViewController() 
                 }
             }
         }
     }
     
     deinit {
-        print("SignUpViewController deinit")
+        print("LoginViewController deinit")
     }
 }
 

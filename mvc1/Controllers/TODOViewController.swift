@@ -17,7 +17,7 @@ class TODOViewController: UIViewController {
         super.viewDidLoad()
         self.title = "TODO"
                 
-        todoTableView.register(UINib(nibName: "TODOTableViewCell", bundle: nil), forCellReuseIdentifier: "TODOTableViewCell")
+        todoTableView.register(UINib(nibName: K.TableCell.TODOTableViewCell, bundle: nil), forCellReuseIdentifier: K.TableCell.TODOTableViewCell)
         todoTableView.tableFooterView = UIView()
         todoTableView.dataSource = self
         todoTableView.delegate = self
@@ -32,11 +32,11 @@ class TODOViewController: UIViewController {
     }
     
     func addTodoItem() {
-        performSegue(withIdentifier: "showAddTodoViewController", sender: self)
+        performSegue(withIdentifier: K.Segue.showAddTodoViewController, sender: self)
     }
     
     @IBAction func profileBarButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showProfileViewController", sender: self)
+        performSegue(withIdentifier: K.Segue.showProfileViewController, sender: self)
     }
     
 }
@@ -50,7 +50,7 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TODOTableViewCell", for: indexPath) as! TODOTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TODOTableViewCell, for: indexPath) as! TODOTableViewCell
         cell.titleLabel.text = "TODO List Item"
         cell.descriptionLabel.text = "TODO List Descritpiton long descriotiong. asdf "
         cell.dateLabel.text = "4 May 2020 (Tues)"
@@ -60,7 +60,7 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "showTODODetailsViewController", sender: self)
+        performSegue(withIdentifier: K.Segue.showTODODetailsViewController, sender: self)
     }
     
 }

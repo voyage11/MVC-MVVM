@@ -13,6 +13,8 @@
 		5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024788247B63680041AD79 /* TODOTableViewCell.swift */; };
 		5D02478B247B63680041AD79 /* TODOTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D024789247B63680041AD79 /* TODOTableViewCell.xib */; };
 		5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D02478C247B68140041AD79 /* GoogleService-Info.plist */; };
+		5D024790247B6EAC0041AD79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02478F247B6EAC0041AD79 /* Constants.swift */; };
+		5D024792247B6FC60041AD79 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024791247B6FC60041AD79 /* User.swift */; };
 		5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3861247A62D900865D6B /* AppDelegate.swift */; };
 		5D2A3869247A62D900865D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A3867247A62D900865D6B /* Main.storyboard */; };
 		5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A386A247A62DA00865D6B /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		5D024788247B63680041AD79 /* TODOTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOTableViewCell.swift; sourceTree = "<group>"; };
 		5D024789247B63680041AD79 /* TODOTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TODOTableViewCell.xib; sourceTree = "<group>"; };
 		5D02478C247B68140041AD79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D02478F247B6EAC0041AD79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D024791247B6FC60041AD79 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5D2A385E247A62D900865D6B /* mvc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A3861247A62D900865D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D2A3868247A62D900865D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		5D02478E247B6E960041AD79 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D02478F247B6EAC0041AD79 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5D2A3855247A62D900865D6B = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2A3861247A62D900865D6B /* AppDelegate.swift */,
+				5D02478E247B6E960041AD79 /* Helpers */,
 				5D2A3885247A775400865D6B /* Extensions */,
 				5D2A3875247A62E500865D6B /* Models */,
 				5D2A3876247A62EC00865D6B /* Views */,
@@ -112,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2A3878247A632400865D6B /* Authentication.swift */,
+				5D024791247B6FC60041AD79 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -296,7 +310,9 @@
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
+				5D024790247B6EAC0041AD79 /* Constants.swift in Sources */,
 				5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */,
+				5D024792247B6FC60041AD79 /* User.swift in Sources */,
 				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
