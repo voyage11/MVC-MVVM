@@ -1,18 +1,19 @@
 //
-//  ContentViewController.swift
+//  ProfileViewController.swift
 //  mvc1
 //
-//  Created by RandomMac on 24/5/20.
+//  Created by RandomMac on 25/5/20.
 //  Copyright © 2020 RandomMac. All rights reserved.
 //
 
 import UIKit
 
-class ContentViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Profile"
     }
 
 }

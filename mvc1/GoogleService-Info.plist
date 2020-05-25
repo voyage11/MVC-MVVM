@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>358808913366-mlquphbfl63fbvn0u7brlq5nupgr4hgc.apps.googleusercontent.com</string>
+	<string>374846791371-of9s40p2q2n4gka96sf26auve4q7nlj8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.358808913366-mlquphbfl63fbvn0u7brlq5nupgr4hgc</string>
+	<string>com.googleusercontent.apps.374846791371-of9s40p2q2n4gka96sf26auve4q7nlj8</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAI3ctGV64DzkQyxS2LWLt_J4yv9ooKbqA</string>
+	<string>AIzaSyAYy2MzYG-B4R8UxIgaGv-Xi3qwfQPEg9c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>358808913366</string>
+	<string>374846791371</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mobileoop.mobilechat</string>
+	<string>com.mobileoop.mvc</string>
 	<key>PROJECT_ID</key>
-	<string>coastal-volt-800</string>
+	<string>todolist-9eafc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>coastal-volt-800.appspot.com</string>
+	<string>todolist-9eafc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:358808913366:ios:68647d3d2cf522e3a71077</string>
+	<string>1:374846791371:ios:fadd77ee74ab4d79a5054e</string>
 	<key>DATABASE_URL</key>
-	<string>https://coastal-volt-800.firebaseio.com</string>
+	<string>https://todolist-9eafc.firebaseio.com</string>
 </dict>
 </plist>

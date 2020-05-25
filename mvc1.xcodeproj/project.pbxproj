@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */; };
+		5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024783247B625C0041AD79 /* ProfileViewController.swift */; };
+		5D024786247B62840041AD79 /* TODODetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024785247B62840041AD79 /* TODODetailsViewController.swift */; };
+		5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024788247B63680041AD79 /* TODOTableViewCell.swift */; };
+		5D02478B247B63680041AD79 /* TODOTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D024789247B63680041AD79 /* TODOTableViewCell.xib */; };
+		5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D02478C247B68140041AD79 /* GoogleService-Info.plist */; };
 		5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3861247A62D900865D6B /* AppDelegate.swift */; };
 		5D2A3869247A62D900865D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A3867247A62D900865D6B /* Main.storyboard */; };
 		5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A386A247A62DA00865D6B /* Assets.xcassets */; };
@@ -15,15 +21,20 @@
 		5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387A247A65A700865D6B /* HomeViewController.swift */; };
 		5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387C247A65F500865D6B /* LoginViewController.swift */; };
 		5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387E247A660100865D6B /* SignUpViewController.swift */; };
-		5D2A3882247A748200865D6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A3881247A748200865D6B /* GoogleService-Info.plist */; };
 		5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3883247A750800865D6B /* AuthenticationService.swift */; };
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
-		5D2A3889247A81D500865D6B /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* ContentViewController.swift */; };
+		5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TODOViewController.swift */; };
 		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTODOViewController.swift; sourceTree = "<group>"; };
+		5D024783247B625C0041AD79 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5D024785247B62840041AD79 /* TODODetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODODetailsViewController.swift; sourceTree = "<group>"; };
+		5D024788247B63680041AD79 /* TODOTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOTableViewCell.swift; sourceTree = "<group>"; };
+		5D024789247B63680041AD79 /* TODOTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TODOTableViewCell.xib; sourceTree = "<group>"; };
+		5D02478C247B68140041AD79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D2A385E247A62D900865D6B /* mvc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A3861247A62D900865D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D2A3868247A62D900865D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,10 +45,9 @@
 		5D2A387A247A65A700865D6B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D2A387C247A65F500865D6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5D2A387E247A660100865D6B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5D2A3881247A748200865D6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D2A3883247A750800865D6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		5D2A3888247A81D500865D6B /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		5D2A3888247A81D500865D6B /* TODOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOViewController.swift; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
 		BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.release.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D024787247B63450041AD79 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				5D024788247B63680041AD79 /* TODOTableViewCell.swift */,
+				5D024789247B63680041AD79 /* TODOTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		5D2A3855247A62D900865D6B = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +103,7 @@
 				5D2A386A247A62DA00865D6B /* Assets.xcassets */,
 				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
 				5D2A386F247A62DA00865D6B /* Info.plist */,
-				5D2A3881247A748200865D6B /* GoogleService-Info.plist */,
+				5D02478C247B68140041AD79 /* GoogleService-Info.plist */,
 			);
 			path = mvc1;
 			sourceTree = "<group>";
@@ -100,6 +119,7 @@
 		5D2A3876247A62EC00865D6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D024787247B63450041AD79 /* TableViewCells */,
 				5D2A3867247A62D900865D6B /* Main.storyboard */,
 			);
 			path = Views;
@@ -111,7 +131,10 @@
 				5D2A387A247A65A700865D6B /* HomeViewController.swift */,
 				5D2A387C247A65F500865D6B /* LoginViewController.swift */,
 				5D2A387E247A660100865D6B /* SignUpViewController.swift */,
-				5D2A3888247A81D500865D6B /* ContentViewController.swift */,
+				5D2A3888247A81D500865D6B /* TODOViewController.swift */,
+				5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */,
+				5D024785247B62840041AD79 /* TODODetailsViewController.swift */,
+				5D024783247B625C0041AD79 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,7 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2A386E247A62DA00865D6B /* LaunchScreen.storyboard in Resources */,
-				5D2A3882247A748200865D6B /* GoogleService-Info.plist in Resources */,
+				5D02478B247B63680041AD79 /* TODOTableViewCell.xib in Resources */,
+				5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */,
 				5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */,
 				5D2A3869247A62D900865D6B /* Main.storyboard in Resources */,
 			);
@@ -265,14 +289,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2A3889247A81D500865D6B /* ContentViewController.swift in Sources */,
+				5D024786247B62840041AD79 /* TODODetailsViewController.swift in Sources */,
+				5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
+				5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */,
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
+				5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */,
 				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
+				5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mobilechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -445,7 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mobilechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

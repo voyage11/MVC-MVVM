@@ -42,9 +42,15 @@ class SignUpViewController: UIViewController {
                 } else {
                     self?.showMessage(title: "Success", message: "Welcome Back!", errorBool: false, successBool: true)
                     self?.performSegue(withIdentifier: "showContentViewController", sender: self)
+                    //TODO: Need to change to the new Window
+                    
                 }
             }
         }
+    }
+    
+    deinit {
+        print("SignUpViewController deinit")
     }
 }
 

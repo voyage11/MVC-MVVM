@@ -46,6 +46,9 @@ class LoginViewController: UIViewController {
         }
     }
     
+    deinit {
+        print("SignUpViewController deinit")
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {

@@ -14,4 +14,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    deinit {
+        print("HomeViewController deinit")
+    }
+    
 }

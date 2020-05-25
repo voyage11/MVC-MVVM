@@ -163,21 +163,117 @@
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="-115.17857142857142"/>
         </scene>
-        <!--Content View Controller-->
+        <!--View Controller-->
         <scene sceneID="xk7-Tz-hbb">
             <objects>
-                <viewController id="ZL6-Pq-Rmu" customClass="ContentViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZL6-Pq-Rmu" customClass="TODOViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJd-Uq-kPu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="9yI-u5-S7T" userLabel="todoStackView">
+                                <rect key="frame" x="67" y="198" width="280" height="227"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! You do not have any TODO items.   Add one now?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZV-3l-oNq">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="124"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="124" id="8mb-6e-nkx"/>
+                                            <constraint firstAttribute="width" constant="280" id="apL-Q3-IqY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuq-OO-9FM" userLabel="addTodoButton">
+                                        <rect key="frame" x="0.0" y="167" width="280" height="60"/>
+                                        <color key="backgroundColor" red="0.14117647059999999" green="0.73333333329999995" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="PDA-S9-oV1"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="qLG-Np-IRT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Add a TODO item">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addTODOButtonTapped:" destination="ZL6-Pq-Rmu" eventType="touchUpInside" id="mzG-fo-2yb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MOK-1C-mOc" userLabel="todoTableView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9yI-u5-S7T" firstAttribute="centerX" secondItem="KJd-Uq-kPu" secondAttribute="centerX" id="2Bs-ju-6s1"/>
+                            <constraint firstItem="9yI-u5-S7T" firstAttribute="top" secondItem="KFk-aW-IRb" secondAttribute="top" constant="110" id="9dj-ng-Twl"/>
+                            <constraint firstItem="MOK-1C-mOc" firstAttribute="top" secondItem="KFk-aW-IRb" secondAttribute="top" id="iXs-UF-CcU"/>
+                            <constraint firstItem="MOK-1C-mOc" firstAttribute="bottom" secondItem="KFk-aW-IRb" secondAttribute="bottom" id="mml-Td-mon"/>
+                            <constraint firstItem="MOK-1C-mOc" firstAttribute="leading" secondItem="KFk-aW-IRb" secondAttribute="leading" id="t1U-7b-yhq"/>
+                            <constraint firstItem="MOK-1C-mOc" firstAttribute="trailing" secondItem="KFk-aW-IRb" secondAttribute="trailing" id="xG6-03-P7j"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KFk-aW-IRb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hpO-Fd-qaW"/>
+                    <navigationItem key="navigationItem" id="hpO-Fd-qaW">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="yOE-JL-Yvo" userLabel="addBarButton">
+                                <connections>
+                                    <action selector="addBarButon:" destination="ZL6-Pq-Rmu" id="xpF-HV-mbX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" id="Gmw-Nm-IYD" userLabel="profileBarButton">
+                                <connections>
+                                    <action selector="profileBarButtonTapped:" destination="ZL6-Pq-Rmu" id="rJX-Jh-kIH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoStackView" destination="9yI-u5-S7T" id="VYM-vI-0Ak"/>
+                        <outlet property="todoTableView" destination="MOK-1C-mOc" id="RUp-57-Kv3"/>
+                        <segue destination="3hp-EU-Q3Z" kind="show" identifier="showAddTodoViewController" id="L8x-tz-8t3"/>
+                        <segue destination="kjE-Hl-iZV" kind="show" identifier="showTODODetailsViewController" id="lfj-yB-ZeL"/>
+                        <segue destination="p3j-PE-ffT" kind="show" identifier="showProfileViewController" id="u63-8H-qx5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5w-xS-RWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="248"/>
+            <point key="canvasLocation" x="2824.6376811594205" y="247.76785714285714"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="zT2-IF-Y5n">
+            <objects>
+                <viewController id="kjE-Hl-iZV" customClass="TODODetailsViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DGY-K4-YL4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ggb-xq-O97"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="46Q-sL-3X0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jey-Bu-cEp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3887" y="248"/>
+        </scene>
+        <!--AddTODO View Controller-->
+        <scene sceneID="nGF-AK-4kC">
+            <objects>
+                <viewController id="3hp-EU-Q3Z" customClass="AddTODOViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WTO-9X-gFg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="CL0-rH-oPE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DOO-BH-cZ4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2I0-3z-GfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3887" y="-488"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="lj2-gc-A8l">
@@ -286,6 +382,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APk-zL-Nwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="117.85714285714285"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Gkm-Nk-dsh">
+            <objects>
+                <viewController id="p3j-PE-ffT" customClass="ProfileViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YM3-XS-XlB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gMi-1a-72Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CZr-PH-C4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QF-We-tgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3887" y="935"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

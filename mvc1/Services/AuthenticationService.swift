@@ -18,6 +18,8 @@ struct AuthenticationService {
                 completion(e.localizedDescription)
             } else {
                 completion(nil)
+                //TODO: Somehow need to save a token locally
+                
             }
         }
     }
@@ -31,6 +33,8 @@ struct AuthenticationService {
                 completion(e.localizedDescription)
             } else {
                 completion(nil)
+                //TODO: Somehow need to save a token?
+
             }
         }
     }
