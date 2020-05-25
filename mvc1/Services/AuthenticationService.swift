@@ -17,10 +17,13 @@ struct AuthenticationService {
             if let e = error {
                 completion(e.localizedDescription)
             } else {
+                var user = User()
                 if let email = Auth.auth().currentUser?.email,
                     let uid = Auth.auth().currentUser?.uid {
-                    var user = User()
                     user.setEmailUid(email: email, uid: uid)
+                }
+                if let name = Auth.auth().currentUser?.displayName {
+                    user.setName(name: name)
                 }
                 completion(nil)
             }
@@ -44,6 +47,22 @@ struct AuthenticationService {
             }
         }
     }
+    
+    func logout(completion: @escaping (_ errorMessage: String?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            var user = User()
+            user.setEmailUid(email: nil, uid: nil)
+            user.setName(name: nil)
+            completion(nil)
+        }
+        catch {
+            completion(error.localizedDescription)
+        }
+    }
+    
+ 
+    
     
 }
 

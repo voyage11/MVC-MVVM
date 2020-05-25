@@ -28,7 +28,7 @@ class TODOViewController: UIViewController {
         let user = User()
         if let uid = user.uid {
             dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
-                print("todoList: \(todoList)")
+                //print("todoList: \(todoList)")
                 if let e = error {
                     self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
                 } else {

@@ -12,19 +12,17 @@ struct User {
     
     var email: String?
     var uid: String?
-    var firstName: String?
-    var lastName: String?
+    var name: String?
     
     init() {
         self.email = UserDefaults.standard.value(forKey: K.User.email) as? String ?? nil
         self.uid = UserDefaults.standard.value(forKey: K.User.uid) as? String ?? nil
-        self.firstName = UserDefaults.standard.value(forKey: K.User.firstName) as? String ?? nil
-        self.lastName = UserDefaults.standard.value(forKey: K.User.lastName) as? String ?? nil
+        self.name = UserDefaults.standard.value(forKey: K.User.name) as? String ?? nil
         //print("email: \(self.email)")
     }
     
-    mutating func setEmailUid(email: String, uid: String) {
-        print("setEmailUid: \(email) uid: \(uid)")
+    mutating func setEmailUid(email: String?, uid: String?) {
+        //print("setEmailUid: \(email) uid: \(uid)")
         self.email = email
         self.uid = uid
         UserDefaults.standard.setValue(email, forKey: K.User.email)
@@ -32,11 +30,9 @@ struct User {
         UserDefaults.standard.synchronize()
     }
     
-    mutating func setName(firstName: String, lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-        UserDefaults.standard.setValue(firstName, forKey: K.User.firstName)
-        UserDefaults.standard.setValue(lastName, forKey: K.User.lastName)
+    mutating func setName(name: String?) {
+        self.name = name
+        UserDefaults.standard.setValue(name, forKey: K.User.name)
         UserDefaults.standard.synchronize()
     }
     

@@ -67,5 +67,25 @@ struct DataService {
                 }
         }
     }
+    
+    func saveProfile(name: String, completion: @escaping (_ errorMessage: String?) -> Void) {
+        if let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() {
+            changeRequest.displayName = name
+            changeRequest.commitChanges { error in
+                if let e = error {
+                    completion(e.localizedDescription)
+                } else {
+                    print("Success")
+                    if let name = Auth.auth().currentUser?.displayName {
+                        var user = User()
+                        user.setName(name: name)
+                    }
+                    completion(nil)
+                }
+            }
+        }
+     }
+    
+    
 
 }

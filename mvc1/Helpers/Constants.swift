@@ -23,8 +23,7 @@ struct K {
     struct User {
         static let email = "email"
         static let uid = "uid"
-        static let firstName = "firstName"
-        static let lastName = "lastName"
+        static let name = "name"
     }
     
     struct StoryboardID {
