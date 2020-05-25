@@ -13,14 +13,40 @@ class TODOViewController: UIViewController {
     @IBOutlet weak var todoStackView: UIStackView!
     @IBOutlet weak var todoTableView: UITableView!
     
+    var todoList = [TodoItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TODO"
-                
         todoTableView.register(UINib(nibName: K.TableCell.TODOTableViewCell, bundle: nil), forCellReuseIdentifier: K.TableCell.TODOTableViewCell)
         todoTableView.tableFooterView = UIView()
         todoTableView.dataSource = self
         todoTableView.delegate = self
+        
+        let dataService = DataService()
+        let user = User()
+        if let uid = user.uid {
+            dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
+                print("todoList: \(todoList)")
+                if let e = error {
+                    self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                } else {
+                    if let todoList = todoList {
+                        DispatchQueue.main.async {
+                            if(todoList.count > 0) {
+                                self?.todoList = todoList
+                                self?.todoTableView.reloadData()
+                                self?.todoTableView.isHidden = false
+                                self?.todoStackView.isHidden = true
+                            } else {
+                                self?.todoTableView.isHidden = true
+                                self?.todoStackView.isHidden = false
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func addTODOButtonTapped(_ sender: UIButton) {
@@ -45,15 +71,17 @@ class TODOViewController: UIViewController {
 extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return todoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TODOTableViewCell, for: indexPath) as! TODOTableViewCell
-        cell.titleLabel.text = "TODO List Item"
-        cell.descriptionLabel.text = "TODO List Descritpiton long descriotiong. asdf "
-        cell.dateLabel.text = "4 May 2020 (Tues)"
+        let todoItem = todoList[indexPath.row]
+        
+        cell.titleLabel.text = todoItem.title
+        cell.descriptionLabel.text = todoItem.description
+        cell.dateLabel.text = "\(todoItem.date)"
         
         return cell
     }

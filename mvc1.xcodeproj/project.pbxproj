@@ -15,6 +15,8 @@
 		5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D02478C247B68140041AD79 /* GoogleService-Info.plist */; };
 		5D024790247B6EAC0041AD79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02478F247B6EAC0041AD79 /* Constants.swift */; };
 		5D024792247B6FC60041AD79 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024791247B6FC60041AD79 /* User.swift */; };
+		5D024794247B9A850041AD79 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024793247B9A850041AD79 /* TodoItem.swift */; };
+		5D024796247BA0440041AD79 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024795247BA0440041AD79 /* DataService.swift */; };
 		5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3861247A62D900865D6B /* AppDelegate.swift */; };
 		5D2A3869247A62D900865D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A3867247A62D900865D6B /* Main.storyboard */; };
 		5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D2A386A247A62DA00865D6B /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		5D02478C247B68140041AD79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D02478F247B6EAC0041AD79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D024791247B6FC60041AD79 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5D024793247B9A850041AD79 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		5D024795247BA0440041AD79 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5D2A385E247A62D900865D6B /* mvc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A3861247A62D900865D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D2A3868247A62D900865D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				5D2A3878247A632400865D6B /* Authentication.swift */,
 				5D024791247B6FC60041AD79 /* User.swift */,
+				5D024793247B9A850041AD79 /* TodoItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2A3883247A750800865D6B /* AuthenticationService.swift */,
+				5D024795247BA0440041AD79 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -306,9 +312,11 @@
 				5D024786247B62840041AD79 /* TODODetailsViewController.swift in Sources */,
 				5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
+				5D024794247B9A850041AD79 /* TodoItem.swift in Sources */,
 				5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */,
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
+				5D024796247BA0440041AD79 /* DataService.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
 				5D024790247B6EAC0041AD79 /* Constants.swift in Sources */,
 				5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */,

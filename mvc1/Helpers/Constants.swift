@@ -33,4 +33,13 @@ struct K {
         static let TODONavigationController = "TODONavigationController"
     }
     
+    struct FStore {
+        static let todolist = "todolist"
+        static let title = "title"
+        static let description = "description"
+        static let date = "date"
+        static let uid = "uid"
+        static let id = "id"
+    }
+    
 }
