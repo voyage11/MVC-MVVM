@@ -13,11 +13,11 @@ struct K {
     struct Segue {
         static let showAddTodoViewController = "showAddTodoViewController"
         static let showProfileViewController = "showProfileViewController"
-        static let showTODODetailsViewController = "showTODODetailsViewController"
+        static let showTodoDetailsViewController = "showTodoDetailsViewController"
     }
     
     struct TableCell {
-        static let TODOTableViewCell = "TODOTableViewCell"
+        static let TodoTableViewCell = "TodoTableViewCell"
     }
     
     struct User {
@@ -29,7 +29,7 @@ struct K {
     struct StoryboardID {
         static let Main = "Main"
         static let InitialNavigationController = "InitialNavigationController"
-        static let TODONavigationController = "TODONavigationController"
+        static let TodoNavigationController = "TodoNavigationController"
     }
     
     struct FStore {

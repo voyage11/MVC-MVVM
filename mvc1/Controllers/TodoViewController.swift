@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TODOViewController: UIViewController {
+class TodoViewController: UIViewController {
 
     @IBOutlet weak var todoStackView: UIStackView!
     @IBOutlet weak var todoTableView: UITableView!
@@ -19,7 +19,7 @@ class TODOViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TODO"
-        todoTableView.register(UINib(nibName: K.TableCell.TODOTableViewCell, bundle: nil), forCellReuseIdentifier: K.TableCell.TODOTableViewCell)
+        todoTableView.register(UINib(nibName: K.TableCell.TodoTableViewCell, bundle: nil), forCellReuseIdentifier: K.TableCell.TodoTableViewCell)
         todoTableView.tableFooterView = UIView()
         todoTableView.dataSource = self
         todoTableView.delegate = self
@@ -73,14 +73,14 @@ class TODOViewController: UIViewController {
 }
 
 
-extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
+extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TODOTableViewCell, for: indexPath) as! TODOTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TodoTableViewCell, for: indexPath) as! TodoTableViewCell
         let todoItem = todoList[indexPath.row]
         cell.titleLabel.text = todoItem.title
         cell.descriptionLabel.text = todoItem.description
@@ -91,7 +91,7 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedRow = indexPath.row
-        performSegue(withIdentifier: K.Segue.showTODODetailsViewController, sender: self)
+        performSegue(withIdentifier: K.Segue.showTodoDetailsViewController, sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -114,8 +114,8 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.Segue.showTODODetailsViewController {
-            let viewController = segue.destination as! TODODetailsViewController
+        if segue.identifier == K.Segue.showTodoDetailsViewController {
+            let viewController = segue.destination as! TodoDetailsViewController
             viewController.todoItem = todoList[selectedRow]
         }
     }

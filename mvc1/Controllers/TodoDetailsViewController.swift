@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TODODetailsViewController: UIViewController {
+class TodoDetailsViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

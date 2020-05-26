@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */; };
+		5D02477E247B5ED30041AD79 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */; };
 		5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024783247B625C0041AD79 /* ProfileViewController.swift */; };
-		5D024786247B62840041AD79 /* TODODetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024785247B62840041AD79 /* TODODetailsViewController.swift */; };
-		5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024788247B63680041AD79 /* TODOTableViewCell.swift */; };
-		5D02478B247B63680041AD79 /* TODOTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D024789247B63680041AD79 /* TODOTableViewCell.xib */; };
+		5D024786247B62840041AD79 /* TodoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024785247B62840041AD79 /* TodoDetailsViewController.swift */; };
+		5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024788247B63680041AD79 /* TodoTableViewCell.swift */; };
+		5D02478B247B63680041AD79 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D024789247B63680041AD79 /* TodoTableViewCell.xib */; };
 		5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D02478C247B68140041AD79 /* GoogleService-Info.plist */; };
 		5D024790247B6EAC0041AD79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02478F247B6EAC0041AD79 /* Constants.swift */; };
 		5D024792247B6FC60041AD79 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024791247B6FC60041AD79 /* User.swift */; };
@@ -27,7 +27,7 @@
 		5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A387E247A660100865D6B /* SignUpViewController.swift */; };
 		5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3883247A750800865D6B /* AuthenticationService.swift */; };
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
-		5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TODOViewController.swift */; };
+		5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TodoViewController.swift */; };
 		5D691600247C992400446E99 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6915FF247C992400446E99 /* AlertType.swift */; };
 		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
 		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
@@ -35,11 +35,11 @@
 
 /* Begin PBXFileReference section */
 		5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTODOViewController.swift; sourceTree = "<group>"; };
+		5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		5D024783247B625C0041AD79 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		5D024785247B62840041AD79 /* TODODetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODODetailsViewController.swift; sourceTree = "<group>"; };
-		5D024788247B63680041AD79 /* TODOTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOTableViewCell.swift; sourceTree = "<group>"; };
-		5D024789247B63680041AD79 /* TODOTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TODOTableViewCell.xib; sourceTree = "<group>"; };
+		5D024785247B62840041AD79 /* TodoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewController.swift; sourceTree = "<group>"; };
+		5D024788247B63680041AD79 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		5D024789247B63680041AD79 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		5D02478C247B68140041AD79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D02478F247B6EAC0041AD79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D024791247B6FC60041AD79 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		5D2A387E247A660100865D6B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5D2A3883247A750800865D6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		5D2A3888247A81D500865D6B /* TODOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOViewController.swift; sourceTree = "<group>"; };
+		5D2A3888247A81D500865D6B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		5D6915FF247C992400446E99 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 		5D024787247B63450041AD79 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				5D024789247B63680041AD79 /* TODOTableViewCell.xib */,
-				5D024788247B63680041AD79 /* TODOTableViewCell.swift */,
+				5D024789247B63680041AD79 /* TodoTableViewCell.xib */,
+				5D024788247B63680041AD79 /* TodoTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -155,9 +155,9 @@
 				5D2A387A247A65A700865D6B /* HomeViewController.swift */,
 				5D2A387C247A65F500865D6B /* LoginViewController.swift */,
 				5D2A387E247A660100865D6B /* SignUpViewController.swift */,
-				5D2A3888247A81D500865D6B /* TODOViewController.swift */,
-				5D02477D247B5ED30041AD79 /* AddTODOViewController.swift */,
-				5D024785247B62840041AD79 /* TODODetailsViewController.swift */,
+				5D2A3888247A81D500865D6B /* TodoViewController.swift */,
+				5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */,
+				5D024785247B62840041AD79 /* TodoDetailsViewController.swift */,
 				5D024783247B625C0041AD79 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -259,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2A386E247A62DA00865D6B /* LaunchScreen.storyboard in Resources */,
-				5D02478B247B63680041AD79 /* TODOTableViewCell.xib in Resources */,
+				5D02478B247B63680041AD79 /* TodoTableViewCell.xib in Resources */,
 				5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */,
 				5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */,
 				5D2A3869247A62D900865D6B /* Main.storyboard in Resources */,
@@ -315,8 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D024786247B62840041AD79 /* TODODetailsViewController.swift in Sources */,
-				5D2A3889247A81D500865D6B /* TODOViewController.swift in Sources */,
+				5D024786247B62840041AD79 /* TodoDetailsViewController.swift in Sources */,
+				5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
 				5D024794247B9A850041AD79 /* TodoItem.swift in Sources */,
 				5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */,
@@ -325,14 +325,14 @@
 				5D024796247BA0440041AD79 /* DataService.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
 				5D024790247B6EAC0041AD79 /* Constants.swift in Sources */,
-				5D02477E247B5ED30041AD79 /* AddTODOViewController.swift in Sources */,
+				5D02477E247B5ED30041AD79 /* AddTodoViewController.swift in Sources */,
 				5D024792247B6FC60041AD79 /* User.swift in Sources */,
 				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
 				5D691600247C992400446E99 /* AlertType.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
 				5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */,
-				5D02478A247B63680041AD79 /* TODOTableViewCell.swift in Sources */,
+				5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

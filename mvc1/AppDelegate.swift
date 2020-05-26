@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = User()
         let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
         if user.email != nil {
-            let TODONavigationController = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TODONavigationController)
-            window?.rootViewController = TODONavigationController
+            let TodoNavigationController = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoNavigationController)
+            window?.rootViewController = TodoNavigationController
             window?.makeKeyAndVisible()
         } else {
             let InitialNavigationController = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.InitialNavigationController)

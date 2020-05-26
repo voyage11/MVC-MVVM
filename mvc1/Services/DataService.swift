@@ -19,10 +19,8 @@ struct DataService {
                    K.FStore.date: todoItem.date,
                    K.FStore.uid: todoItem.uid]) { error in
                     if let e = error {
-                        print("Error: \(e.localizedDescription)")
                         completion(e.localizedDescription)
                     } else {
-                        print("Save success")
                         completion(nil)
                     }
         }
@@ -75,7 +73,6 @@ struct DataService {
                 if let e = error {
                     completion(e.localizedDescription)
                 } else {
-                    print("Success")
                     if let name = Auth.auth().currentUser?.displayName {
                         var user = User()
                         user.setName(name: name)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTODOViewController: UIViewController {
+class AddTodoViewController: UIViewController {
 
     @IBOutlet weak var todoTitleTextField: UITextField!
     @IBOutlet weak var todoDescriptionTextView: UITextView!
@@ -45,7 +45,7 @@ class AddTODOViewController: UIViewController {
     
 }
 
-extension AddTODOViewController: UITextFieldDelegate {
+extension AddTodoViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         todoDescriptionTextView.becomeFirstResponder()

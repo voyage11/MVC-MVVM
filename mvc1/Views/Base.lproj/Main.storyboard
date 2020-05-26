@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1128" y="-126"/>
         </scene>
-        <!--TODOViewController-->
+        <!--TodoViewController-->
         <scene sceneID="xk7-Tz-hbb">
             <objects>
-                <viewController id="ZL6-Pq-Rmu" userLabel="TODOViewController" customClass="TODOViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZL6-Pq-Rmu" userLabel="TodoViewController" customClass="TodoViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJd-Uq-kPu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,7 +235,7 @@
                         <outlet property="todoStackView" destination="9yI-u5-S7T" id="VYM-vI-0Ak"/>
                         <outlet property="todoTableView" destination="MOK-1C-mOc" id="RUp-57-Kv3"/>
                         <segue destination="3hp-EU-Q3Z" kind="show" identifier="showAddTodoViewController" id="L8x-tz-8t3"/>
-                        <segue destination="kjE-Hl-iZV" kind="show" identifier="showTODODetailsViewController" id="lfj-yB-ZeL"/>
+                        <segue destination="kjE-Hl-iZV" kind="show" identifier="showTodoDetailsViewController" id="lfj-yB-ZeL"/>
                         <segue destination="p3j-PE-ffT" kind="show" identifier="showProfileViewController" id="u63-8H-qx5"/>
                     </connections>
                 </viewController>
@@ -243,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="3734.7826086956525" y="247.76785714285714"/>
         </scene>
-        <!--TODODetailsViewController-->
+        <!--TodoDetailsViewController-->
         <scene sceneID="zT2-IF-Y5n">
             <objects>
-                <viewController id="kjE-Hl-iZV" userLabel="TODODetailsViewController" customClass="TODODetailsViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kjE-Hl-iZV" userLabel="TodoDetailsViewController" customClass="TodoDetailsViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DGY-K4-YL4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="4797.1014492753629" y="247.76785714285714"/>
         </scene>
-        <!--AddTODO View Controller-->
+        <!--AddTodoViewController-->
         <scene sceneID="nGF-AK-4kC">
             <objects>
-                <viewController id="3hp-EU-Q3Z" customClass="AddTODOViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3hp-EU-Q3Z" userLabel="AddTodoViewController" customClass="AddTodoViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WTO-9X-gFg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,10 +610,10 @@
             </objects>
             <point key="canvasLocation" x="4795.652173913044" y="969.64285714285711"/>
         </scene>
-        <!--TODONavigationController-->
+        <!--TodoNavigationController-->
         <scene sceneID="ZHY-gt-vw2">
             <objects>
-                <navigationController storyboardIdentifier="TODONavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bj2-45-Gx9" userLabel="TODONavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TodoNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bj2-45-Gx9" userLabel="TodoNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s12-vf-MqD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
