@@ -29,9 +29,9 @@ class AddTODOViewController: UIViewController {
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
         dataService.addTodoItem(todoItem: todoItem) { [weak self] error in
             if let e = error {
-                self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                self?.showMessage(title: "Error", message: e, alertType: .error)
             } else {
-                self?.showMessage(title: "Success", message: "The TODO item is added.", errorBool: false, successBool: true)
+                self?.showMessage(title: "Success", message: "The TODO item is added.", alertType: .success)
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
                 }
@@ -40,7 +40,7 @@ class AddTODOViewController: UIViewController {
     }
     
     deinit {
-        print("AddTODOViewController deinit")
+        //print("\(String(describing: type(of: self))) deinit")
     }
     
 }
@@ -51,7 +51,5 @@ extension AddTODOViewController: UITextFieldDelegate {
         todoDescriptionTextView.becomeFirstResponder()
         return false
     }
-    
-    
     
 }

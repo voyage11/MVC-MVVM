@@ -18,11 +18,9 @@ struct User {
         self.email = UserDefaults.standard.value(forKey: K.User.email) as? String ?? nil
         self.uid = UserDefaults.standard.value(forKey: K.User.uid) as? String ?? nil
         self.name = UserDefaults.standard.value(forKey: K.User.name) as? String ?? nil
-        //print("email: \(self.email)")
     }
     
     mutating func setEmailUid(email: String?, uid: String?) {
-        //print("setEmailUid: \(email) uid: \(uid)")
         self.email = email
         self.uid = uid
         UserDefaults.standard.setValue(email, forKey: K.User.email)

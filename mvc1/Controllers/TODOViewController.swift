@@ -30,7 +30,7 @@ class TODOViewController: UIViewController {
             dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
                 //print("todoList: \(todoList)")
                 if let e = error {
-                    self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                    self?.showMessage(title: "Error", message: e, alertType: .error)
                 } else {
                     if let todoList = todoList {
                         DispatchQueue.main.async {
@@ -64,6 +64,10 @@ class TODOViewController: UIViewController {
     
     @IBAction func profileBarButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: K.Segue.showProfileViewController, sender: self)
+    }
+    
+    deinit {
+        //print("\(String(describing: type(of: self))) deinit")
     }
     
 }
@@ -100,7 +104,7 @@ extension TODOViewController: UITableViewDataSource, UITableViewDelegate {
             if let id = self.todoList[indexPath.row].id {
                 dataService.deleteTodoItem(id: id) { [weak self] error in
                     if let e = error {
-                        self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                        self?.showMessage(title: "Error", message: e, alertType: .error)
                     }
                 }
             }

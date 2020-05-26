@@ -13,9 +13,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     deinit {
-        print("HomeViewController deinit")
+        //print("\(String(describing: type(of: self))) deinit")
     }
     
 }

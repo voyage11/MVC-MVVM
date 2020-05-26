@@ -33,7 +33,7 @@ class TODODetailsViewController: UIViewController {
         let dataService = DataService()
         dataService.deleteTodoItem(id: id) { [weak self] error in
             if let e = error {
-                self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                self?.showMessage(title: "Error", message: e, alertType: .error)
             } else {
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
@@ -43,7 +43,7 @@ class TODODetailsViewController: UIViewController {
     }
 
     deinit {
-        print("TODODetailsViewController deinit")
+        //print("\(String(describing: type(of: self))) deinit")
     }
     
 }

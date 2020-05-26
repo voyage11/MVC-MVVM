@@ -27,19 +27,19 @@ class LoginViewController: UIViewController {
     
     func fieldValidation() {
         if emailTextField.text == "" {
-            showMessage(title: "Email Required", message: "Please enter your email.", errorBool: true, successBool: false)
+            showMessage(title: "Email Required", message: "Please enter your email.", alertType: .error)
             emailTextField.becomeFirstResponder()
         } else if passwordTextField.text == "" {
-            showMessage(title: "Password Required", message: "Please enter your password.", errorBool: true, successBool: false)
+            showMessage(title: "Password Required", message: "Please enter your password.",alertType: .error)
             passwordTextField.becomeFirstResponder()
         } else {
             let autheticationModel = Authentication(email: emailTextField.text!, password: passwordTextField.text!)
             let authenticationService = AuthenticationService()
             authenticationService.login(authentication: autheticationModel) { [weak self] error in
                 if let e = error {
-                    self?.showMessage(title: "Error", message: e, errorBool: true, successBool: false)
+                    self?.showMessage(title: "Error", message: e, alertType: .error)
                 } else {
-                    self?.showMessage(title: "Success", message: "Welcome Back!", errorBool: false, successBool: true)
+                    self?.showMessage(title: "Success", message: "Welcome Back!", alertType: .success)
                     self?.moveToTODOViewController() 
                 }
             }
@@ -47,8 +47,9 @@ class LoginViewController: UIViewController {
     }
     
     deinit {
-        print("LoginViewController deinit")
+        //print("\(String(describing: type(of: self))) deinit")
     }
+    
 }
 
 extension LoginViewController: UITextFieldDelegate {
