@@ -224,7 +224,7 @@
                                     <action selector="addBarButon:" destination="ZL6-Pq-Rmu" id="xpF-HV-mbX"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Profile" id="Gmw-Nm-IYD" userLabel="profileBarButton">
+                            <barButtonItem image="profileIcon" id="Gmw-Nm-IYD" userLabel="profileBarButton">
                                 <connections>
                                     <action selector="profileBarButtonTapped:" destination="ZL6-Pq-Rmu" id="rJX-Jh-kIH"/>
                                 </connections>
@@ -629,4 +629,7 @@
             <point key="canvasLocation" x="2824.6376811594205" y="247.76785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profileIcon" width="25" height="25"/>
+    </resources>
 </document>
