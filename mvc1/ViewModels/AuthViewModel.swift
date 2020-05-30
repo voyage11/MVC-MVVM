@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  AuthViewModel.swift
 //  mvc1
 //
 //  Created by RandomMac on 28/5/20.
@@ -17,7 +17,7 @@ final class AuthViewModel {
     
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
-
+    
     var email = BehaviorRelay<String>(value: "")
     var password = BehaviorRelay<String>(value: "")
     
@@ -75,6 +75,23 @@ final class AuthViewModel {
                 }
             ).disposed(by: disposeBag)
         }
+    }
+    
+    func logout() {
+        loading.accept(true)
+        authService.logout().subscribe(
+            onNext: { [weak self] in
+                self?.loading.accept(false)
+                let alertMessage = AlertMessage(title: "Success", message: "Thanks for siging up!", alertType: .success)
+                self?.onShowMessage.onNext(alertMessage)
+                self?.onNextNavigation.onNext(())
+            },
+            onError: { [weak self] error in
+                self?.loading.accept(false)
+                let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
+                self?.onShowMessage.onNext(alertMessage)
+            }
+        ).disposed(by: disposeBag)
     }
     
 }

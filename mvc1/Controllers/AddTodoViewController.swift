@@ -7,16 +7,37 @@
 //
 
 import UIKit
+import RxSwift
 
 class AddTodoViewController: UIViewController {
 
     @IBOutlet weak var todoTitleTextField: UITextField!
     @IBOutlet weak var todoDescriptionTextView: UITextView!
     
+    let viewModel = TodoViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add a TODO Item"
         todoTitleTextField.delegate = self
+        
+        viewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
+                self?.showMessage(alertMessage: alertMessage)
+            }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        viewModel
+        .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
+        
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -24,21 +45,9 @@ class AddTodoViewController: UIViewController {
     }
     
     func saveTodoItem() {
-        let dataService = DataService()
         let user = User()
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
-        dataService.addTodoItem(todoItem: todoItem) { [weak self] error in
-            if let e = error {
-                let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
-                self?.showMessage(alertMessage: alertMessage)
-            } else {
-                let alertMessage = AlertMessage(title: "Success", message:"The TODO item is added.", alertType: .success)
-                self?.showMessage(alertMessage: alertMessage)
-                DispatchQueue.main.async {
-                    self?.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
+        viewModel.addTodoItem(todoItem: todoItem)
     }
     
     deinit {

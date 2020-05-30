@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class TodoDetailsViewController: UIViewController {
 
@@ -14,33 +15,41 @@ class TodoDetailsViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var todoItem: TodoItem?
+    var todoCellViewModel: TodoCellViewModel?
+    let viewModel = TodoViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let todoItem = todoItem {
-            self.title = todoItem.title
-            titleLabel.text = todoItem.title
-            descriptionLabel.text = todoItem.description
-            dateLabel.text = todoItem.dateString()
+        if let todoCellViewModel = todoCellViewModel {
+            self.title = todoCellViewModel.title
+            titleLabel.text = todoCellViewModel.title
+            descriptionLabel.text = todoCellViewModel.description
+            dateLabel.text = todoCellViewModel.dateString()
         }
-    }
-    
-    @IBAction func completeButtonTapped(_ sender: UIButton) {
-        guard let todoItem = todoItem, let id = todoItem.id else {
-            return
-        }
-        let dataService = DataService()
-        dataService.deleteTodoItem(id: id) { [weak self] error in
-            if let e = error {
-                let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+        
+        viewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
                 self?.showMessage(alertMessage: alertMessage)
-            } else {
+        }
+        .subscribe()
+        .disposed(by: disposeBag)
+        
+        viewModel
+            .onNextNavigation
+            .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
                 }
-            }
+            }).disposed(by: disposeBag)
+    }
+    
+    @IBAction func completeButtonTapped(_ sender: UIButton) {
+        guard let todoCellViewModel = todoCellViewModel, let id = todoCellViewModel.id else {
+            return
         }
+        viewModel.deleteTodoItem(id: id)
     }
 
     deinit {

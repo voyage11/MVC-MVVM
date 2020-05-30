@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxSwiftExt
 
 class TodoViewController: UIViewController {
 
     @IBOutlet weak var todoStackView: UIStackView!
     @IBOutlet weak var todoTableView: UITableView!
     
-    var todoList = [TodoItem]()
     var selectedRow = 0
-    
+    let viewModel = TodoViewModel()
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TODO"
@@ -23,33 +27,53 @@ class TodoViewController: UIViewController {
         todoTableView.tableFooterView = UIView()
         todoTableView.dataSource = self
         todoTableView.delegate = self
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
         
-        let dataService = DataService()
-        let user = User()
-        if let uid = user.uid {
-            dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
-                print("todoList: \(todoList)")
-                if let e = error {
-                    let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
-                    self?.showMessage(alertMessage: alertMessage)
-                } else {
-                    if let todoList = todoList {
-                        DispatchQueue.main.async {
-                            if(todoList.count > 0) {
-                                self?.todoList = todoList
-                                self?.todoTableView.reloadData()
-                                self?.todoTableView.isHidden = false
-                                self?.todoStackView.isHidden = true
-                            } else {
-                                self?.todoTableView.isHidden = true
-                                self?.todoStackView.isHidden = false
-                            }
-                        }
+        viewModel.todoCellViewModels
+            .asObservable()
+            .subscribe(onNext: { [weak self] todoCellViewModels in
+                DispatchQueue.main.async {
+                    if(todoCellViewModels.count > 0) {
+                        self?.todoTableView.reloadData()
+                        self?.todoTableView.isHidden = false
+                        self?.todoStackView.isHidden = true
+                    } else {
+                        self?.todoTableView.isHidden = true
+                        self?.todoStackView.isHidden = false
                     }
                 }
-            }
+            }).disposed(by: disposeBag)
+        
+        todoTableView.rx
+            .itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.selectedRow = indexPath.row
+                self?.todoTableView.deselectRow(at: indexPath, animated: true)
+                self?.performSegue(withIdentifier: K.Segue.showTodoDetailsViewController, sender: self)
+            }).disposed(by: disposeBag)
+        
+        viewModel.getTodoList()
+        
+        viewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
+                self?.showMessage(alertMessage: alertMessage)
         }
+        .subscribe()
+        .disposed(by: disposeBag)
+        
+        viewModel
+            .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
     }
+    
     
     @IBAction func addTODOButtonTapped(_ sender: UIButton) {
         addTodoItem()
@@ -77,22 +101,14 @@ class TodoViewController: UIViewController {
 extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoList.count
+        return viewModel.todoCellViewModels.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.TodoTableViewCell, for: indexPath) as! TodoTableViewCell
-        let todoItem = todoList[indexPath.row]
-        cell.titleLabel.text = todoItem.title
-        cell.descriptionLabel.text = todoItem.description
-        cell.dateLabel.text = todoItem.dateString()
+        let todoCellViewModels = viewModel.todoCellViewModels.value[indexPath.row]
+        cell.todoCellViewModel = todoCellViewModels
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selectedRow = indexPath.row
-        performSegue(withIdentifier: K.Segue.showTodoDetailsViewController, sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -100,15 +116,9 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .default, title: "Complete") { _, indexPath in
-            let dataService = DataService()
-            if let id = self.todoList[indexPath.row].id {
-                dataService.deleteTodoItem(id: id) { [weak self] error in
-                    if let e = error {
-                        let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
-                        self?.showMessage(alertMessage: alertMessage)
-                    }
-                }
+        let deleteAction = UITableViewRowAction(style: .default, title: "Complete") { [weak self] _, indexPath in
+            if let id = self?.viewModel.todoCellViewModels.value[indexPath.row].id {
+                self?.viewModel.deleteTodoItem(id: id)
             }
         }
         deleteAction.backgroundColor = .red
@@ -118,7 +128,7 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segue.showTodoDetailsViewController {
             let viewController = segue.destination as! TodoDetailsViewController
-            viewController.todoItem = todoList[selectedRow]
+            viewController.todoCellViewModel = viewModel.todoCellViewModels.value[selectedRow]
         }
     }
     

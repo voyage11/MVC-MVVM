@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import RxSwift
 
 class ProfileViewController: UIViewController {
 
@@ -15,6 +16,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
 
+    let viewModel = TodoViewModel()
+    let authViewModel = AuthViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
@@ -23,19 +28,43 @@ class ProfileViewController: UIViewController {
         emailTextField.text = user.email
         nameTextField.text = user.name
         nameTextField.delegate = self
+        
+        viewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
+                self?.showMessage(alertMessage: alertMessage)
+            }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        viewModel
+        .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
+        
+        authViewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
+                self?.showMessage(alertMessage: alertMessage)
+            }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        authViewModel
+        .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.moveToInitialViewController()
+                }
+            }).disposed(by: disposeBag)
     }
     
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        let autheticationService = AuthenticationService()
-        autheticationService.logout { [weak self] error in
-            if let e = error {
-                let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
-                self?.showMessage(alertMessage: alertMessage)
-            } else {
-                self?.moveToInitialViewController()
-            }
-        }
+        authViewModel.logout()
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -44,19 +73,7 @@ class ProfileViewController: UIViewController {
     
     func saveProfile() {
         if let name = nameTextField.text {
-            let dateService = DataService()
-            dateService.saveProfile(name: name) { [weak self] error in
-                if let e = error {
-                    let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
-                    self?.showMessage(alertMessage: alertMessage)
-                } else {
-                    let alertMessage = AlertMessage(title: "Success", message:"Name is saved successfully.", alertType: .success)
-                    self?.showMessage(alertMessage: alertMessage)
-                    DispatchQueue.main.async {
-                        self?.navigationController?.popViewController(animated: true)
-                    }
-                }
-            }
+            viewModel.saveProfile(name: name)
         }
     }
 

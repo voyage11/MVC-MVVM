@@ -54,16 +54,19 @@ struct AuthenticationService {
         }
     }
     
-    func logout(completion: @escaping (_ errorMessage: String?) -> Void) {
-        do {
-            try Auth.auth().signOut()
-            var user = User()
-            user.setEmailUid(email: nil, uid: nil)
-            user.setName(name: nil)
-            completion(nil)
-        }
-        catch {
-            completion(error.localizedDescription)
+    func logout() -> Observable<Void>  {
+        return Observable<Void>.create { observer -> Disposable in
+            do {
+                try Auth.auth().signOut()
+                var user = User()
+                user.setEmailUid(email: nil, uid: nil)
+                user.setName(name: nil)
+                observer.onNext(())
+            }
+            catch {
+                observer.onError(error)
+            }
+            return Disposables.create()
         }
     }
     
