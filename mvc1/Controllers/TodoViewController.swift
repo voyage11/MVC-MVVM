@@ -28,9 +28,10 @@ class TodoViewController: UIViewController {
         let user = User()
         if let uid = user.uid {
             dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
-                //print("todoList: \(todoList)")
+                print("todoList: \(todoList)")
                 if let e = error {
-                    self?.showMessage(title: "Error", message: e, alertType: .error)
+                    let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+                    self?.showMessage(alertMessage: alertMessage)
                 } else {
                     if let todoList = todoList {
                         DispatchQueue.main.async {
@@ -104,7 +105,8 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
             if let id = self.todoList[indexPath.row].id {
                 dataService.deleteTodoItem(id: id) { [weak self] error in
                     if let e = error {
-                        self?.showMessage(title: "Error", message: e, alertType: .error)
+                        let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+                        self?.showMessage(alertMessage: alertMessage)
                     }
                 }
             }

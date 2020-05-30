@@ -30,7 +30,8 @@ class ProfileViewController: UIViewController {
         let autheticationService = AuthenticationService()
         autheticationService.logout { [weak self] error in
             if let e = error {
-                self?.showMessage(title: "Error", message: e, alertType: .error)
+                let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+                self?.showMessage(alertMessage: alertMessage)
             } else {
                 self?.moveToInitialViewController()
             }
@@ -46,9 +47,11 @@ class ProfileViewController: UIViewController {
             let dateService = DataService()
             dateService.saveProfile(name: name) { [weak self] error in
                 if let e = error {
-                    self?.showMessage(title: "Error", message: e, alertType: .error)
+                    let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+                    self?.showMessage(alertMessage: alertMessage)
                 } else {
-                    self?.showMessage(title: "Success", message: "Name is saved successfully.", alertType: .success)
+                    let alertMessage = AlertMessage(title: "Success", message:"Name is saved successfully.", alertType: .success)
+                    self?.showMessage(alertMessage: alertMessage)
                     DispatchQueue.main.async {
                         self?.navigationController?.popViewController(animated: true)
                     }

@@ -29,8 +29,10 @@
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
 		5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TodoViewController.swift */; };
 		5D691600247C992400446E99 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6915FF247C992400446E99 /* AlertType.swift */; };
+		5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72CCD524809C3B0093763B /* AlertMessage.swift */; };
 		5D82E115247E13A5008583E7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D82E114247E13A4008583E7 /* README.md */; };
 		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
+		5DD53C99247FC0D200D8C3E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD53C98247FC0D200D8C3E5 /* LoginViewModel.swift */; };
 		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +62,10 @@
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5D2A3888247A81D500865D6B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		5D6915FF247C992400446E99 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		5D72CCD524809C3B0093763B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		5D82E114247E13A4008583E7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		5DD53C98247FC0D200D8C3E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
 		BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.release.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +96,7 @@
 			children = (
 				5D02478F247B6EAC0041AD79 /* Constants.swift */,
 				5D6915FF247C992400446E99 /* AlertType.swift */,
+				5D72CCD524809C3B0093763B /* AlertMessage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				5D2A3875247A62E500865D6B /* Models */,
 				5D2A3876247A62EC00865D6B /* Views */,
 				5D2A3877247A62F400865D6B /* Controllers */,
+				5DD53C97247FC08F00D8C3E5 /* ViewModels */,
 				5D2A3880247A702400865D6B /* Services */,
 				5D2A386A247A62DA00865D6B /* Assets.xcassets */,
 				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
@@ -182,6 +188,14 @@
 				5DCF2334247BDE190060872D /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5DD53C97247FC08F00D8C3E5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DD53C98247FC0D200D8C3E5 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		7A06A6EB5DD6ED9B6824B58E /* Frameworks */ = {
@@ -325,6 +339,7 @@
 				5D024794247B9A850041AD79 /* TodoItem.swift in Sources */,
 				5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */,
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
+				5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
 				5D024796247BA0440041AD79 /* DataService.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
@@ -336,6 +351,7 @@
 				5D691600247C992400446E99 /* AlertType.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
 				5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */,
+				5DD53C99247FC0D200D8C3E5 /* LoginViewModel.swift in Sources */,
 				5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

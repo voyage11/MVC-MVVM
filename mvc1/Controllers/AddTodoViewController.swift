@@ -29,9 +29,11 @@ class AddTodoViewController: UIViewController {
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
         dataService.addTodoItem(todoItem: todoItem) { [weak self] error in
             if let e = error {
-                self?.showMessage(title: "Error", message: e, alertType: .error)
+                let alertMessage = AlertMessage(title: "Error", message:e, alertType: .error)
+                self?.showMessage(alertMessage: alertMessage)
             } else {
-                self?.showMessage(title: "Success", message: "The TODO item is added.", alertType: .success)
+                let alertMessage = AlertMessage(title: "Success", message:"The TODO item is added.", alertType: .success)
+                self?.showMessage(alertMessage: alertMessage)
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
                 }

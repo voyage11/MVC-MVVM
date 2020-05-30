@@ -11,13 +11,13 @@ import SwiftMessages
 
 extension UIViewController {
     
-    func showMessage(title: String, message: String, alertType: AlertType) {
+    func showMessage(alertMessage: AlertMessage) {
         DispatchQueue.main.async {
             let error = MessageView.viewFromNib(layout: .messageView)
             error.button?.isHidden = true
             var errorConfig = SwiftMessages.defaultConfig
             errorConfig.presentationContext = .window(windowLevel: UIWindow.Level.statusBar)
-            switch(alertType) {
+            switch(alertMessage.alertType) {
             case .success:
                 let image = #imageLiteral(resourceName: "successIcon")
                 error.configureTheme(backgroundColor: UIColor(named: "successBackground")!, foregroundColor: .white, iconImage: image, iconText: nil)
@@ -29,7 +29,7 @@ extension UIViewController {
             default:
                 error.configureTheme(.error)
             }
-            error.configureContent(title: title, body: message)
+            error.configureContent(title: alertMessage.title, body: alertMessage.message)
             SwiftMessages.show(config: errorConfig, view: error)
         }
     }

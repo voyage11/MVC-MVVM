@@ -9,42 +9,64 @@
 import UIKit
 import SkyFloatingLabelTextField
 import SwiftMessages
+import RxSwift
+import RxCocoa
+import RxSwiftExt
 
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
+    let viewModel = AuthViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Signup"
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        bindViewModel()
+    }
+
+    private func bind(textField: UITextField, to behaviorRelay: BehaviorRelay<String>) {
+        behaviorRelay.asObservable()
+            .bind(to: textField.rx.text)
+            .disposed(by: disposeBag)
+        textField.rx.text.unwrap()
+            .bind(to: behaviorRelay)
+            .disposed(by: disposeBag)
     }
     
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        fieldValidation()
-    }
-    
-    func fieldValidation() {
-        if emailTextField.text == "" {
-            showMessage(title: "Email Required", message: "Please enter your email.", alertType: .error)
-            emailTextField.becomeFirstResponder()
-        } else if passwordTextField.text == "" {
-            showMessage(title: "Password Required", message: "Please enter your password.", alertType: .error)
-            passwordTextField.becomeFirstResponder()
-        } else {
-            let autheticationModel = Authentication(email: emailTextField.text!, password: passwordTextField.text!)
-            let authenticationService = AuthenticationService()
-            authenticationService.signUp(authentication: autheticationModel) { [weak self] error in
-                if let e = error {
-                    self?.showMessage(title: "Error", message: e, alertType: .error)
-                } else {
-                    self?.showMessage(title: "Success", message: "Welcome Back!", alertType: .success)
-                    self?.moveToTODOViewController()
+    private func bindViewModel() {
+        bind(textField: emailTextField, to: viewModel.email)
+        bind(textField: passwordTextField, to: viewModel.password)
+        
+        viewModel
+            .onShowMessage
+            .map { [weak self] alertMessage in
+                self?.showMessage(alertMessage: alertMessage)
+                DispatchQueue.main.async {
+                    if(alertMessage.title == "Email Required") {
+                        self?.emailTextField.becomeFirstResponder()
+                    } else if(alertMessage.title == "Password Required") {
+                        self?.passwordTextField.becomeFirstResponder()
+                    }
                 }
             }
-        }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        viewModel
+        .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                self?.moveToTODOViewController()
+            }).disposed(by: disposeBag)
+    }
+    
+    
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        viewModel.signUp()
     }
     
     deinit {
@@ -59,7 +81,7 @@ extension SignUpViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            fieldValidation()
+            viewModel.signUp()
         }
         return false
     }

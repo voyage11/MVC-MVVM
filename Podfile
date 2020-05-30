@@ -10,5 +10,10 @@ target 'mvc1' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'SwiftMessages'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'RxSwiftExt', '~> 5'
+  pod 'RxDataSources', '~> 4.0'
 
+  
 end
