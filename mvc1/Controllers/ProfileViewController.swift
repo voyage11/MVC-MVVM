@@ -28,17 +28,20 @@ class ProfileViewController: UIViewController {
         emailTextField.text = user.email
         nameTextField.text = user.name
         nameTextField.delegate = self
-        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
                 self?.showMessage(alertMessage: alertMessage)
-            }
-            .subscribe()
-            .disposed(by: disposeBag)
+        }
+        .subscribe()
+        .disposed(by: disposeBag)
         
         viewModel
-        .onNextNavigation
+            .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
@@ -49,19 +52,28 @@ class ProfileViewController: UIViewController {
             .onShowMessage
             .map { [weak self] alertMessage in
                 self?.showMessage(alertMessage: alertMessage)
-            }
-            .subscribe()
-            .disposed(by: disposeBag)
+        }
+        .subscribe()
+        .disposed(by: disposeBag)
         
         authViewModel
-        .onNextNavigation
+            .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.moveToInitialViewController()
                 }
             }).disposed(by: disposeBag)
+        
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
+                }
+            }).disposed(by: disposeBag)
     }
-    
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         authViewModel.logout()

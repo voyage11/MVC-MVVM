@@ -11,6 +11,7 @@ import SkyFloatingLabelTextField
 import RxSwift
 import RxCocoa
 import RxSwiftExt
+import NVActivityIndicatorView
 
 class LoginViewController: UIViewController {
 
@@ -62,6 +63,16 @@ class LoginViewController: UIViewController {
                 self?.moveToTODOViewController()
             }).disposed(by: disposeBag)
         
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
+                }
+            }).disposed(by: disposeBag)
+
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {

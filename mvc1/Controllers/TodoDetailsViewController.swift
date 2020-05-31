@@ -27,7 +27,10 @@ class TodoDetailsViewController: UIViewController {
             descriptionLabel.text = todoCellViewModel.description
             dateLabel.text = todoCellViewModel.dateString()
         }
-        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -41,6 +44,16 @@ class TodoDetailsViewController: UIViewController {
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
+        
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
                 }
             }).disposed(by: disposeBag)
     }

@@ -14,6 +14,7 @@ target 'mvc1' do
   pod 'RxCocoa', '~> 5'
   pod 'RxSwiftExt', '~> 5'
   pod 'RxDataSources', '~> 4.0'
+  pod 'NVActivityIndicatorView'
 
   
 end

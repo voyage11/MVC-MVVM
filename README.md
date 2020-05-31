@@ -12,7 +12,6 @@ If you have developed some complex iOS projects, you will notice that some view 
 What exactly is MVVM? It is an improved software development patterm over the MVC. 
 Model - The same on MVC which consist of data.
 View - Consists of both View and View Controller.
-View Model - Codes related to networking and data manipulation are separated from View Controller and placed under this layer. 
+View Model - Codes related to networking and data manipulation are separated from View Controller and placed under this layer. It also means that View Controller will have less responsibility and less code.
 
-I just started to use MVVM about 1.5 years ago. 
-
+I just started to use MVVM (together with RxSwift) about 1.5 years ago. 

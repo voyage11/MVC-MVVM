@@ -19,6 +19,11 @@ final class TodoViewModel {
     
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
+    var onShowLoading: Observable<Bool> {
+        return loading
+            .asObservable()
+            .distinctUntilChanged()
+    }
     
     var todoCellViewModels = BehaviorRelay<[TodoCellViewModel]>(value: [])
     

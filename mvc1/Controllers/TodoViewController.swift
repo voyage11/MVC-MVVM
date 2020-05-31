@@ -31,7 +31,6 @@ class TodoViewController: UIViewController {
     }
     
     func bindViewModel() {
-        
         viewModel.todoCellViewModels
             .asObservable()
             .subscribe(onNext: { [weak self] todoCellViewModels in
@@ -72,8 +71,17 @@ class TodoViewController: UIViewController {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)
+        
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
+                }
+            }).disposed(by: disposeBag)
     }
-    
     
     @IBAction func addTODOButtonTapped(_ sender: UIButton) {
         addTodoItem()

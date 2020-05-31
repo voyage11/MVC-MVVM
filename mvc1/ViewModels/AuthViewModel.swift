@@ -17,6 +17,11 @@ final class AuthViewModel {
     
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
+    var onShowLoading: Observable<Bool> {
+        return loading
+            .asObservable()
+            .distinctUntilChanged()
+    }
     
     var email = BehaviorRelay<String>(value: "")
     var password = BehaviorRelay<String>(value: "")
@@ -82,7 +87,7 @@ final class AuthViewModel {
         authService.logout().subscribe(
             onNext: { [weak self] in
                 self?.loading.accept(false)
-                let alertMessage = AlertMessage(title: "Success", message: "Thanks for siging up!", alertType: .success)
+                let alertMessage = AlertMessage(title: "Success", message: "Logout successfully.", alertType: .success)
                 self?.onShowMessage.onNext(alertMessage)
                 self?.onNextNavigation.onNext(())
             },

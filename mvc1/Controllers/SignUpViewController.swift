@@ -62,6 +62,16 @@ class SignUpViewController: UIViewController {
             .subscribe(onNext: { [weak self] in
                 self?.moveToTODOViewController()
             }).disposed(by: disposeBag)
+        
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
+                }
+            }).disposed(by: disposeBag)
     }
     
     

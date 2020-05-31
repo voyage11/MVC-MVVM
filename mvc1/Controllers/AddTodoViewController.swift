@@ -21,24 +21,37 @@ class AddTodoViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Add a TODO Item"
         todoTitleTextField.delegate = self
-        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
                 self?.showMessage(alertMessage: alertMessage)
-            }
-            .subscribe()
-            .disposed(by: disposeBag)
+        }
+        .subscribe()
+        .disposed(by: disposeBag)
         
         viewModel
-        .onNextNavigation
+            .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)
         
+        viewModel
+            .onShowLoading
+            .subscribe(onNext: { [weak self] isLoading in
+                if(isLoading) {
+                    self?.startAnimating()
+                } else {
+                    self?.stopAnimating()
+                }
+            }).disposed(by: disposeBag)
     }
+    
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
         saveTodoItem()
