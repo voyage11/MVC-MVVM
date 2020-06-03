@@ -12,7 +12,7 @@ This is a common software architectural pattern for most iOS projects. I have be
 
 If you have developed some complex iOS projects, you will notice that some view controllers may contain thousands lines of code. Any new change requests on those view controllers will be tough especially they contains codes from different iOS developers. MVC will eventually become "Massive View Controller" and hard to maintain.
 
-Inside a MVC project, normally the codes have been distributed into a few layers:-
+Inside a MVC project, normally the codes have been distributed into a few layers:-  
 **Model:** Contain structure of data for local storage, show on UIs, parameters on function or API requests.  
 **View:** Storyboards, xib and associated view files such as UITableViewCell.  
 **Controller:** In iOS, we only have View Controller. From the name itself, it shows that it is both view and controller. So, there is no clear distinguish between view and controller inside a View Controller. Sometimes, View Controller may contains some View related codes due to various reasons.  
