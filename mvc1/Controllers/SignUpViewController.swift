@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
             showMessage(title: "Password Required", message: "Please enter your password.", alertType: .error)
             passwordTextField.becomeFirstResponder()
         } else {
+            startAnimating()
             let autheticationModel = Authentication(email: emailTextField.text!, password: passwordTextField.text!)
             let authenticationService = AuthenticationService()
             authenticationService.signUp(authentication: autheticationModel) { [weak self] error in
@@ -43,6 +44,7 @@ class SignUpViewController: UIViewController {
                     self?.showMessage(title: "Success", message: "Welcome Back!", alertType: .success)
                     self?.moveToTODOViewController()
                 }
+                self?.stopAnimating()
             }
         }
     }

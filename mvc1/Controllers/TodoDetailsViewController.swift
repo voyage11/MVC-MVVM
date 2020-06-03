@@ -30,6 +30,7 @@ class TodoDetailsViewController: UIViewController {
         guard let todoItem = todoItem, let id = todoItem.id else {
             return
         }
+        startAnimating()
         let dataService = DataService()
         dataService.deleteTodoItem(id: id) { [weak self] error in
             if let e = error {
@@ -39,6 +40,7 @@ class TodoDetailsViewController: UIViewController {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }
+            self?.stopAnimating()
         }
     }
 

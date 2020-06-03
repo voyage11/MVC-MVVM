@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController {
     
     func saveProfile() {
         if let name = nameTextField.text {
+            startAnimating()
             let dateService = DataService()
             dateService.saveProfile(name: name) { [weak self] error in
                 if let e = error {
@@ -53,6 +54,7 @@ class ProfileViewController: UIViewController {
                         self?.navigationController?.popViewController(animated: true)
                     }
                 }
+                self?.stopAnimating()
             }
         }
     }

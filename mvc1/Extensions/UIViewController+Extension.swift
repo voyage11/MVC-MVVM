@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftMessages
+import NVActivityIndicatorView
 
-extension UIViewController {
+extension UIViewController: NVActivityIndicatorViewable {
     
     func showMessage(title: String, message: String, alertType: AlertType) {
         DispatchQueue.main.async {

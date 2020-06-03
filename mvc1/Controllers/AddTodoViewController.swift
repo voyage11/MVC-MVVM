@@ -24,6 +24,7 @@ class AddTodoViewController: UIViewController {
     }
     
     func saveTodoItem() {
+        startAnimating()
         let dataService = DataService()
         let user = User()
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
@@ -36,6 +37,7 @@ class AddTodoViewController: UIViewController {
                     self?.navigationController?.popViewController(animated: true)
                 }
             }
+            self?.stopAnimating()
         }
     }
     

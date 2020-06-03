@@ -27,6 +27,7 @@ class TodoViewController: UIViewController {
         let dataService = DataService()
         let user = User()
         if let uid = user.uid {
+            self.startAnimating()
             dataService.getTodoList(uid: uid) { [weak self] (error, todoList) in
                 //print("todoList: \(todoList)")
                 if let e = error {
@@ -46,6 +47,7 @@ class TodoViewController: UIViewController {
                         }
                     }
                 }
+                self?.stopAnimating()
             }
         }
     }
@@ -100,12 +102,14 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Complete") { _, indexPath in
+            self.startAnimating()
             let dataService = DataService()
             if let id = self.todoList[indexPath.row].id {
                 dataService.deleteTodoItem(id: id) { [weak self] error in
                     if let e = error {
                         self?.showMessage(title: "Error", message: e, alertType: .error)
                     }
+                    self?.stopAnimating()
                 }
             }
         }

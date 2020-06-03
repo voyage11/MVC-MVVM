@@ -10,5 +10,6 @@ target 'mvc1' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'SwiftMessages'
+  pod 'NVActivityIndicatorView'
 
 end
