@@ -1,27 +1,28 @@
 //
-//  LoginViewController.swift
-//  mvc1
+//  SignUpViewController.swift
+//  mvc-mvvm
 //
-//  Created by RandomMac on 24/5/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 24/5/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 import UIKit
 import SkyFloatingLabelTextField
+import SwiftMessages
 
-class LoginViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Login"
+        self.title = "Signup"
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
         fieldValidation()
     }
     
@@ -30,18 +31,18 @@ class LoginViewController: UIViewController {
             showMessage(title: "Email Required", message: "Please enter your email.", alertType: .error)
             emailTextField.becomeFirstResponder()
         } else if passwordTextField.text == "" {
-            showMessage(title: "Password Required", message: "Please enter your password.",alertType: .error)
+            showMessage(title: "Password Required", message: "Please enter your password.", alertType: .error)
             passwordTextField.becomeFirstResponder()
         } else {
             startAnimating()
             let autheticationModel = Authentication(email: emailTextField.text!, password: passwordTextField.text!)
             let authenticationService = AuthenticationService()
-            authenticationService.login(authentication: autheticationModel) { [weak self] error in
+            authenticationService.signUp(authentication: autheticationModel) { [weak self] error in
                 if let e = error {
                     self?.showMessage(title: "Error", message: e, alertType: .error)
                 } else {
                     self?.showMessage(title: "Success", message: "Welcome Back!", alertType: .success)
-                    self?.moveToTODOViewController() 
+                    self?.moveToTODOViewController()
                 }
                 self?.stopAnimating()
             }
@@ -54,7 +55,7 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController: UITextFieldDelegate {
+extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {

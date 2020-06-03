@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B7C940780085786BC7891BA /* Pods_mvc_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A823A6FDDC3079E0BEA0F0DA /* Pods_mvc_mvvm.framework */; };
 		5D02477E247B5ED30041AD79 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */; };
 		5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024783247B625C0041AD79 /* ProfileViewController.swift */; };
 		5D024786247B62840041AD79 /* TodoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024785247B62840041AD79 /* TodoDetailsViewController.swift */; };
 		5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024788247B63680041AD79 /* TodoTableViewCell.swift */; };
 		5D02478B247B63680041AD79 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D024789247B63680041AD79 /* TodoTableViewCell.xib */; };
-		5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D02478C247B68140041AD79 /* GoogleService-Info.plist */; };
 		5D024790247B6EAC0041AD79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D02478F247B6EAC0041AD79 /* Constants.swift */; };
 		5D024792247B6FC60041AD79 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024791247B6FC60041AD79 /* User.swift */; };
 		5D024794247B9A850041AD79 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D024793247B9A850041AD79 /* TodoItem.swift */; };
@@ -31,22 +31,21 @@
 		5D691600247C992400446E99 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6915FF247C992400446E99 /* AlertType.swift */; };
 		5D82E115247E13A5008583E7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D82E114247E13A4008583E7 /* README.md */; };
 		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
-		73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */; };
+		5DD5DD1A24873FE600B91FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DD5DD1924873FE600B91FE4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvc1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDD635768376F44813728A2 /* Pods-mvc-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc-mvvm.release.xcconfig"; path = "Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm.release.xcconfig"; sourceTree = "<group>"; };
 		5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		5D024783247B625C0041AD79 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5D024785247B62840041AD79 /* TodoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewController.swift; sourceTree = "<group>"; };
 		5D024788247B63680041AD79 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		5D024789247B63680041AD79 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
-		5D02478C247B68140041AD79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D02478F247B6EAC0041AD79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D024791247B6FC60041AD79 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5D024793247B9A850041AD79 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		5D024795247BA0440041AD79 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		5D2A385E247A62D900865D6B /* mvc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D2A385E247A62D900865D6B /* mvc-mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mvc-mvvm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A3861247A62D900865D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D2A3868247A62D900865D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D2A386A247A62DA00865D6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,8 +61,11 @@
 		5D6915FF247C992400446E99 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5D82E114247E13A4008583E7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		5DD5DD1924873FE600B91FE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.debug.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.debug.xcconfig"; sourceTree = "<group>"; };
+		A823A6FDDC3079E0BEA0F0DA /* Pods_mvc_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvc_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc1.release.xcconfig"; path = "Target Support Files/Pods-mvc1/Pods-mvc1.release.xcconfig"; sourceTree = "<group>"; };
+		F8E47651F83DBCF8BA9FDEDC /* Pods-mvc-mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc-mvvm.debug.xcconfig"; path = "Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73C7824570ED56F24E36567A /* Pods_mvc1.framework in Frameworks */,
+				4B7C940780085786BC7891BA /* Pods_mvc_mvvm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				5D82E114247E13A4008583E7 /* README.md */,
-				5D2A3860247A62D900865D6B /* mvc1 */,
+				5D2A3860247A62D900865D6B /* mvc-mvvm */,
 				5D2A385F247A62D900865D6B /* Products */,
 				898A09E78503FDE1CF9B1B8D /* Pods */,
 				7A06A6EB5DD6ED9B6824B58E /* Frameworks */,
@@ -110,12 +112,12 @@
 		5D2A385F247A62D900865D6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D2A385E247A62D900865D6B /* mvc1.app */,
+				5D2A385E247A62D900865D6B /* mvc-mvvm.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5D2A3860247A62D900865D6B /* mvc1 */ = {
+		5D2A3860247A62D900865D6B /* mvc-mvvm */ = {
 			isa = PBXGroup;
 			children = (
 				5D2A3861247A62D900865D6B /* AppDelegate.swift */,
@@ -128,9 +130,9 @@
 				5D2A386A247A62DA00865D6B /* Assets.xcassets */,
 				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
 				5D2A386F247A62DA00865D6B /* Info.plist */,
-				5D02478C247B68140041AD79 /* GoogleService-Info.plist */,
+				5DD5DD1924873FE600B91FE4 /* GoogleService-Info.plist */,
 			);
-			path = mvc1;
+			path = "mvc-mvvm";
 			sourceTree = "<group>";
 		};
 		5D2A3875247A62E500865D6B /* Models */ = {
@@ -187,7 +189,7 @@
 		7A06A6EB5DD6ED9B6824B58E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5BB4B956D28488808E5DD480 /* Pods_mvc1.framework */,
+				A823A6FDDC3079E0BEA0F0DA /* Pods_mvc_mvvm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,6 +199,8 @@
 			children = (
 				672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */,
 				BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */,
+				F8E47651F83DBCF8BA9FDEDC /* Pods-mvc-mvvm.debug.xcconfig */,
+				3EDD635768376F44813728A2 /* Pods-mvc-mvvm.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -204,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D2A385D247A62D900865D6B /* mvc1 */ = {
+		5D2A385D247A62D900865D6B /* mvc-mvvm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D2A3872247A62DA00865D6B /* Build configuration list for PBXNativeTarget "mvc1" */;
+			buildConfigurationList = 5D2A3872247A62DA00865D6B /* Build configuration list for PBXNativeTarget "mvc-mvvm" */;
 			buildPhases = (
 				9EBA37E37C2A5CD0A5B53593 /* [CP] Check Pods Manifest.lock */,
 				5D2A385A247A62D900865D6B /* Sources */,
@@ -218,9 +222,9 @@
 			);
 			dependencies = (
 			);
-			name = mvc1;
+			name = "mvc-mvvm";
 			productName = mvc1;
-			productReference = 5D2A385E247A62D900865D6B /* mvc1.app */;
+			productReference = 5D2A385E247A62D900865D6B /* mvc-mvvm.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -238,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5D2A3859247A62D900865D6B /* Build configuration list for PBXProject "mvc1" */;
+			buildConfigurationList = 5D2A3859247A62D900865D6B /* Build configuration list for PBXProject "mvc-mvvm" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -251,7 +255,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D2A385D247A62D900865D6B /* mvc1 */,
+				5D2A385D247A62D900865D6B /* mvc-mvvm */,
 			);
 		};
 /* End PBXProject section */
@@ -264,9 +268,9 @@
 				5D82E115247E13A5008583E7 /* README.md in Resources */,
 				5D2A386E247A62DA00865D6B /* LaunchScreen.storyboard in Resources */,
 				5D02478B247B63680041AD79 /* TodoTableViewCell.xib in Resources */,
-				5D02478D247B68140041AD79 /* GoogleService-Info.plist in Resources */,
 				5D2A386B247A62DA00865D6B /* Assets.xcassets in Resources */,
 				5D2A3869247A62D900865D6B /* Main.storyboard in Resources */,
+				5DD5DD1A24873FE600B91FE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +292,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mvc1-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-mvc-mvvm-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -301,15 +305,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mvc1/Pods-mvc1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mvc1/Pods-mvc1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mvc1/Pods-mvc1-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -478,18 +482,18 @@
 		};
 		5D2A3873247A62DA00865D6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 672E33A600E697740D97F3EF /* Pods-mvc1.debug.xcconfig */;
+			baseConfigurationReference = F8E47651F83DBCF8BA9FDEDC /* Pods-mvc-mvvm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BWV85FM68;
-				INFOPLIST_FILE = mvc1/Info.plist;
+				INFOPLIST_FILE = "mvc-mvvm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileoop.mvc-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -498,18 +502,18 @@
 		};
 		5D2A3874247A62DA00865D6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE758592FF3570F3ED355C4E /* Pods-mvc1.release.xcconfig */;
+			baseConfigurationReference = 3EDD635768376F44813728A2 /* Pods-mvc-mvvm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BWV85FM68;
-				INFOPLIST_FILE = mvc1/Info.plist;
+				INFOPLIST_FILE = "mvc-mvvm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileoop.mvc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobileoop.mvc-mvvm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -519,7 +523,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5D2A3859247A62D900865D6B /* Build configuration list for PBXProject "mvc1" */ = {
+		5D2A3859247A62D900865D6B /* Build configuration list for PBXProject "mvc-mvvm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D2A3870247A62DA00865D6B /* Debug */,
@@ -528,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D2A3872247A62DA00865D6B /* Build configuration list for PBXNativeTarget "mvc1" */ = {
+		5D2A3872247A62DA00865D6B /* Build configuration list for PBXNativeTarget "mvc-mvvm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D2A3873247A62DA00865D6B /* Debug */,

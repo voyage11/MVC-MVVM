@@ -1,9 +1,9 @@
 //
 //  AuthenticationServices.swift
-//  mvc1
+//  mvc-mvvm
 //
-//  Created by RandomMac on 24/5/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 24/5/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 import Firebase
