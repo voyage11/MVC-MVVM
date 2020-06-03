@@ -41,4 +41,4 @@ This Todo Project have the following functions:-
 - Add Name on Profile
 - Logout
 
-The backend API is implemented using Firebase Authentication and Cloud Firestore. I hope you learn something new from this project. For more details on the project implementation, you visit this blog post: 
+The backend API is implemented using Firebase Authentication and Cloud Firestore. I hope you learn something new from this project. For more details on the project implementation, you visit this blog post: [MVVM and RxSwift - iOS Apps Development](https://mobileoop.com/mvvm-and-rxswift-ios-apps-development)
