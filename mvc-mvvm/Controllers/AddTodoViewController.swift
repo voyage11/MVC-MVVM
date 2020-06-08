@@ -14,7 +14,7 @@ class AddTodoViewController: UIViewController {
     @IBOutlet weak var todoTitleTextField: UITextField!
     @IBOutlet weak var todoDescriptionTextView: UITextView!
     
-    let viewModel = TodoViewModel()
+    var viewModel: TodoViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class AddTodoViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -58,6 +59,7 @@ class AddTodoViewController: UIViewController {
     }
     
     func saveTodoItem() {
+        guard let viewModel = viewModel else { return }
         let user = User()
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
         viewModel.addTodoItem(todoItem: todoItem)

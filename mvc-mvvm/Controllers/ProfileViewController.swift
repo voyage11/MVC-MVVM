@@ -16,8 +16,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
 
-    let viewModel = TodoViewModel()
-    let authViewModel = AuthViewModel()
+    var viewModel: TodoViewModel?
+    var authViewModel: AuthViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        guard let viewModel = viewModel, let authViewModel = authViewModel else { return }
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -76,6 +77,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        guard let authViewModel = authViewModel else { return }
         authViewModel.logout()
     }
     
@@ -84,6 +86,7 @@ class ProfileViewController: UIViewController {
     }
     
     func saveProfile() {
+        guard let viewModel = viewModel else { return }
         if let name = nameTextField.text {
             viewModel.saveProfile(name: name)
         }

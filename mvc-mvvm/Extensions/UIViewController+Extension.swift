@@ -40,9 +40,13 @@ extension UIViewController: NVActivityIndicatorViewable {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
                 let window = appDelegate.window {
                 let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
-                let TodoNavigationController = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoNavigationController)
-                window.rootViewController = TodoNavigationController
-                window.makeKeyAndVisible()
+                if let navVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoNavigationController) as? UINavigationController {
+                    if let todoViewController = navVC.viewControllers.first as? TodoViewController {
+                        todoViewController.viewModel = TodoViewModel()
+                    }
+                    window.rootViewController = navVC
+                    window.makeKeyAndVisible()
+                }
             }
         }
     }
@@ -52,8 +56,8 @@ extension UIViewController: NVActivityIndicatorViewable {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
                 let window = appDelegate.window {
                 let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
-                let TodoNavigationController = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.InitialNavigationController)
-                window.rootViewController = TodoNavigationController
+                let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.InitialNavigationController)
+                window.rootViewController = vc
                 window.makeKeyAndVisible()
             }
         }

@@ -10,12 +10,6 @@ import Foundation
 
 struct K {
     
-    struct Segue {
-        static let showAddTodoViewController = "showAddTodoViewController"
-        static let showProfileViewController = "showProfileViewController"
-        static let showTodoDetailsViewController = "showTodoDetailsViewController"
-    }
-    
     struct TableCell {
         static let TodoTableViewCell = "TodoTableViewCell"
     }
@@ -30,6 +24,12 @@ struct K {
         static let Main = "Main"
         static let InitialNavigationController = "InitialNavigationController"
         static let TodoNavigationController = "TodoNavigationController"
+        static let LoginViewController = "LoginViewController"
+        static let SignUpViewController = "SignUpViewController"
+        static let TodoViewController = "TodoViewController"
+        static let AddTodoViewController = "AddTodoViewController"
+        static let TodoDetailsViewController = "TodoDetailsViewController"
+        static let ProfileViewController = "ProfileViewController"
     }
     
     struct FStore {

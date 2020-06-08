@@ -16,7 +16,7 @@ class TodoDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var todoCellViewModel: TodoCellViewModel?
-    let viewModel = TodoViewModel()
+    var viewModel: TodoViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class TodoDetailsViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -59,7 +60,9 @@ class TodoDetailsViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
-        guard let todoCellViewModel = todoCellViewModel, let id = todoCellViewModel.id else {
+        guard let todoCellViewModel = todoCellViewModel,
+            let id = todoCellViewModel.id,
+            let viewModel = viewModel else {
             return
         }
         viewModel.deleteTodoItem(id: id)

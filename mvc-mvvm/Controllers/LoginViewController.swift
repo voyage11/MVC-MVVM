@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
-    let viewModel = AuthViewModel()
+    var viewModel: AuthViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
         bind(textField: emailTextField, to: viewModel.email)
         bind(textField: passwordTextField, to: viewModel.password)
         
@@ -72,11 +73,16 @@ class LoginViewController: UIViewController {
                     self?.stopAnimating()
                 }
             }).disposed(by: disposeBag)
-
+    }
+    
+    private func login() {
+        if let viewModel = viewModel {
+            viewModel.login()
+        }
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        viewModel.login()
+        login()
     }
     
     deinit {
@@ -91,7 +97,7 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            viewModel.login()
+            login()
         }
         return false
     }

@@ -11,7 +11,7 @@
         <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="HomeViewController" customClass="HomeViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="HomeViewController" customClass="HomeViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Irl-yz-rUZ">
-                                <rect key="frame" x="20" y="734" width="374" height="128"/>
+                                <rect key="frame" x="20" y="704" width="374" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fr-aZ-09I" userLabel="loginButton">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -39,7 +39,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="uHc-L1-Amg" kind="show" id="tzo-Nu-cno"/>
+                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qnq-tX-UIz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-3r-jRr" userLabel="signUpButton">
@@ -53,7 +53,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="WKD-eC-btl" kind="show" id="pb3-vD-43j"/>
+                                            <action selector="signUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lgg-uT-gG3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -64,7 +64,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Irl-yz-rUZ" secondAttribute="trailing" constant="20" id="3d0-bS-Dwd"/>
                             <constraint firstItem="lIM-SY-FKC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4G2-zR-7b3"/>
                             <constraint firstItem="Irl-yz-rUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GHV-ZA-iTQ"/>
-                            <constraint firstItem="Irl-yz-rUZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JKV-w1-Dps"/>
+                            <constraint firstItem="Irl-yz-rUZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="JKV-w1-Dps"/>
                             <constraint firstItem="lIM-SY-FKC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="SEG-0S-658"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -78,13 +78,13 @@
         <!--LoginViewController-->
         <scene sceneID="0KO-vU-7bl">
             <objects>
-                <viewController id="uHc-L1-Amg" userLabel="LoginViewController" customClass="LoginViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uHc-L1-Amg" userLabel="LoginViewController" customClass="LoginViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BUz-2W-kTC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pb2-Vj-X40">
-                                <rect key="frame" x="20" y="188" width="374" height="270"/>
+                                <rect key="frame" x="20" y="144" width="374" height="270"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="21j-Uw-HtZ" userLabel="emailTextField" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
@@ -165,7 +165,7 @@
         <!--TodoViewController-->
         <scene sceneID="xk7-Tz-hbb">
             <objects>
-                <viewController id="ZL6-Pq-Rmu" userLabel="TodoViewController" customClass="TodoViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZL6-Pq-Rmu" userLabel="TodoViewController" customClass="TodoViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KJd-Uq-kPu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,9 +234,6 @@
                     <connections>
                         <outlet property="todoStackView" destination="9yI-u5-S7T" id="VYM-vI-0Ak"/>
                         <outlet property="todoTableView" destination="MOK-1C-mOc" id="RUp-57-Kv3"/>
-                        <segue destination="3hp-EU-Q3Z" kind="show" identifier="showAddTodoViewController" id="L8x-tz-8t3"/>
-                        <segue destination="kjE-Hl-iZV" kind="show" identifier="showTodoDetailsViewController" id="lfj-yB-ZeL"/>
-                        <segue destination="p3j-PE-ffT" kind="show" identifier="showProfileViewController" id="u63-8H-qx5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5w-xS-RWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,13 +243,13 @@
         <!--TodoDetailsViewController-->
         <scene sceneID="zT2-IF-Y5n">
             <objects>
-                <viewController id="kjE-Hl-iZV" userLabel="TodoDetailsViewController" customClass="TodoDetailsViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodoDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kjE-Hl-iZV" userLabel="TodoDetailsViewController" customClass="TodoDetailsViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DGY-K4-YL4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title: Todo Item Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb3-mk-sef" userLabel="titleLabel">
-                                <rect key="frame" x="20" y="104" width="374" height="32"/>
+                                <rect key="frame" x="20" y="60" width="374" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="dXX-sR-LyJ"/>
                                 </constraints>
@@ -261,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVp-s0-6dX" userLabel="dateLabel">
-                                <rect key="frame" x="20" y="144" width="374" height="16"/>
+                                <rect key="frame" x="20" y="100" width="374" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Rtm-eb-ZRE"/>
                                 </constraints>
@@ -270,7 +267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFd-oi-fe6" userLabel="completeButton">
-                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <rect key="frame" x="20" y="772" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.93504732847213745" green="0.34053867399925214" blue="0.30379266023273294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8hS-f5-4hO"/>
@@ -284,7 +281,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frj-Pq-4v2" userLabel="descriptionLabel">
-                                <rect key="frame" x="20" y="176" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="132" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -299,7 +296,7 @@
                             <constraint firstItem="frj-Pq-4v2" firstAttribute="leading" secondItem="Ggb-xq-O97" secondAttribute="leading" constant="20" id="Q1q-ev-AZh"/>
                             <constraint firstItem="OVp-s0-6dX" firstAttribute="top" secondItem="Nb3-mk-sef" secondAttribute="bottom" constant="8" id="TFf-6F-Meu"/>
                             <constraint firstItem="OFd-oi-fe6" firstAttribute="leading" secondItem="Ggb-xq-O97" secondAttribute="leading" constant="20" id="VbH-tT-HGm"/>
-                            <constraint firstItem="OFd-oi-fe6" firstAttribute="bottom" secondItem="Ggb-xq-O97" secondAttribute="bottom" id="aTQ-va-zsR"/>
+                            <constraint firstItem="OFd-oi-fe6" firstAttribute="bottom" secondItem="Ggb-xq-O97" secondAttribute="bottom" constant="-30" id="aTQ-va-zsR"/>
                             <constraint firstItem="frj-Pq-4v2" firstAttribute="top" secondItem="OVp-s0-6dX" secondAttribute="bottom" constant="16" id="iSD-qy-fzF"/>
                             <constraint firstItem="Ggb-xq-O97" firstAttribute="trailing" secondItem="OFd-oi-fe6" secondAttribute="trailing" constant="20" id="mWP-CI-vWL"/>
                             <constraint firstItem="Nb3-mk-sef" firstAttribute="top" secondItem="Ggb-xq-O97" secondAttribute="top" constant="16" id="ucg-Yo-ghH"/>
@@ -321,13 +318,13 @@
         <!--AddTodoViewController-->
         <scene sceneID="nGF-AK-4kC">
             <objects>
-                <viewController id="3hp-EU-Q3Z" userLabel="AddTodoViewController" customClass="AddTodoViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTodoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3hp-EU-Q3Z" userLabel="AddTodoViewController" customClass="AddTodoViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WTO-9X-gFg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KQ-gl-Nyq">
-                                <rect key="frame" x="20" y="113" width="374" height="17"/>
+                                <rect key="frame" x="20" y="69" width="374" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="LbX-fC-bSR"/>
                                 </constraints>
@@ -336,7 +333,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TODO Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-bF-10c" userLabel="todoTitleTextField">
-                                <rect key="frame" x="20" y="136" width="374" height="50"/>
+                                <rect key="frame" x="20" y="92" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wCa-GV-ZN5"/>
                                 </constraints>
@@ -344,13 +341,13 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syh-Kj-cHw">
-                                <rect key="frame" x="20" y="202" width="374" height="18"/>
+                                <rect key="frame" x="20" y="158" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="93i-a4-SDV" userLabel="todoDescriptionTextView">
-                                <rect key="frame" x="20" y="226" width="374" height="299"/>
+                                <rect key="frame" x="20" y="182" width="374" height="299"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="299" id="5vm-xH-bgP"/>
@@ -396,13 +393,13 @@
         <!--SignUpViewController-->
         <scene sceneID="lj2-gc-A8l">
             <objects>
-                <viewController id="WKD-eC-btl" userLabel="SignUpViewController" customClass="SignUpViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WKD-eC-btl" userLabel="SignUpViewController" customClass="SignUpViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4j-68-fKe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Cc-Pj-9nV">
-                                <rect key="frame" x="20" y="188" width="374" height="270"/>
+                                <rect key="frame" x="20" y="144" width="374" height="270"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="du2-mx-7lb" userLabel="emailTextField" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
@@ -503,13 +500,13 @@
         <!--ProfileViewController-->
         <scene sceneID="Gkm-Nk-dsh">
             <objects>
-                <viewController id="p3j-PE-ffT" userLabel="ProfileViewController" customClass="ProfileViewController" customModule="mvc1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p3j-PE-ffT" userLabel="ProfileViewController" customClass="ProfileViewController" customModule="mvc_mvvm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YM3-XS-XlB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-tC-MP0" userLabel="logoutButton">
-                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <rect key="frame" x="20" y="772" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="3qD-6i-igP"/>
@@ -523,7 +520,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MNX-zw-oac">
-                                <rect key="frame" x="20" y="118" width="374" height="205"/>
+                                <rect key="frame" x="20" y="74" width="374" height="205"/>
                                 <subviews>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-xj-smB" userLabel="uidTextField" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
@@ -586,7 +583,7 @@
                             <constraint firstItem="gMi-1a-72Y" firstAttribute="trailing" secondItem="5LI-tC-MP0" secondAttribute="trailing" constant="20" id="G2E-fg-KGa"/>
                             <constraint firstAttribute="trailing" secondItem="MNX-zw-oac" secondAttribute="trailing" constant="20" id="Q2s-Ra-Iyu"/>
                             <constraint firstItem="MNX-zw-oac" firstAttribute="top" secondItem="gMi-1a-72Y" secondAttribute="top" constant="30" id="fE0-PX-SBK"/>
-                            <constraint firstItem="5LI-tC-MP0" firstAttribute="bottom" secondItem="gMi-1a-72Y" secondAttribute="bottom" id="sKW-du-VMV"/>
+                            <constraint firstItem="5LI-tC-MP0" firstAttribute="bottom" secondItem="gMi-1a-72Y" secondAttribute="bottom" constant="-30" id="sKW-du-VMV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gMi-1a-72Y"/>
                     </view>
