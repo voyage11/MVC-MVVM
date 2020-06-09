@@ -27,6 +27,10 @@
 		5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3883247A750800865D6B /* AuthenticationService.swift */; };
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
 		5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TodoViewController.swift */; };
+		5D4F0E0D248E582C00D1D0AE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F0E0C248E582C00D1D0AE /* Coordinator.swift */; };
+		5D4F0E0F248E587200D1D0AE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F0E0E248E587200D1D0AE /* AppCoordinator.swift */; };
+		5D4F0E12248E5AFA00D1D0AE /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F0E11248E5AFA00D1D0AE /* HomeCoordinator.swift */; };
+		5D4F0E15248E5B7000D1D0AE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D4F0E14248E5B7000D1D0AE /* Home.storyboard */; };
 		5D691600247C992400446E99 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6915FF247C992400446E99 /* AlertType.swift */; };
 		5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72CCD524809C3B0093763B /* AlertMessage.swift */; };
 		5D7B2C7424823A6000A5849B /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B2C7324823A6000A5849B /* TodoViewModel.swift */; };
@@ -35,6 +39,8 @@
 		5D854ABA24873BC00019D657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D854AB924873BC00019D657 /* GoogleService-Info.plist */; };
 		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
 		5DD53C99247FC0D200D8C3E5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */; };
+		5DD7DD79248F214400BDD8D7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7DD78248F214400BDD8D7 /* ProfileViewModel.swift */; };
+		5DEF4C3B248F09BB0070B874 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEF4C3A248F09BB0070B874 /* MainCoordinator.swift */; };
 		D5687617DCFCD2BADD611601 /* Pods_mvc_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AF4502D2C6B97199B3499B /* Pods_mvc_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +69,10 @@
 		5D2A3883247A750800865D6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5D2A3888247A81D500865D6B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		5D4F0E0C248E582C00D1D0AE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5D4F0E0E248E587200D1D0AE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		5D4F0E11248E5AFA00D1D0AE /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		5D4F0E14248E5B7000D1D0AE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		5D6915FF247C992400446E99 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5D72CCD524809C3B0093763B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		5D7B2C7324823A6000A5849B /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +81,8 @@
 		5D854AB924873BC00019D657 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5DD7DD78248F214400BDD8D7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		5DEF4C3A248F09BB0070B874 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		67E3714B77A148BBBFD657C2 /* Pods-mvc-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc-mvvm.release.xcconfig"; path = "Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,13 +142,10 @@
 				5D2A3861247A62D900865D6B /* AppDelegate.swift */,
 				5D02478E247B6E960041AD79 /* Utilities */,
 				5D2A3885247A775400865D6B /* Extensions */,
+				5D4F0E0B248E57FF00D1D0AE /* Scenes */,
 				5D2A3875247A62E500865D6B /* Models */,
-				5D2A3876247A62EC00865D6B /* Views */,
-				5D2A3877247A62F400865D6B /* Controllers */,
-				5DD53C97247FC08F00D8C3E5 /* ViewModels */,
 				5D2A3880247A702400865D6B /* Services */,
 				5D2A386A247A62DA00865D6B /* Assets.xcassets */,
-				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
 				5D2A386F247A62DA00865D6B /* Info.plist */,
 				5D854AB924873BC00019D657 /* GoogleService-Info.plist */,
 			);
@@ -146,9 +155,9 @@
 		5D2A3875247A62E500865D6B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5D2A3878247A632400865D6B /* Authentication.swift */,
 				5D024791247B6FC60041AD79 /* User.swift */,
 				5D024793247B9A850041AD79 /* TodoItem.swift */,
+				5D2A3878247A632400865D6B /* Authentication.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,23 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				5D024787247B63450041AD79 /* TableViewCells */,
-				5D2A3867247A62D900865D6B /* Main.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5D2A3877247A62F400865D6B /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				5D2A387A247A65A700865D6B /* HomeViewController.swift */,
-				5D2A387C247A65F500865D6B /* LoginViewController.swift */,
-				5D2A387E247A660100865D6B /* SignUpViewController.swift */,
-				5D2A3888247A81D500865D6B /* TodoViewController.swift */,
-				5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */,
-				5D024785247B62840041AD79 /* TodoDetailsViewController.swift */,
-				5D024783247B625C0041AD79 /* ProfileViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		5D2A3880247A702400865D6B /* Services */ = {
@@ -194,14 +188,78 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5DD53C97247FC08F00D8C3E5 /* ViewModels */ = {
+		5D4F0E0B248E57FF00D1D0AE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */,
+				5D2A386C247A62DA00865D6B /* LaunchScreen.storyboard */,
+				5D4F0E0C248E582C00D1D0AE /* Coordinator.swift */,
+				5D4F0E0E248E587200D1D0AE /* AppCoordinator.swift */,
+				5D4F0E10248E5AC900D1D0AE /* Home */,
+				5DEF4C39248F09A00070B874 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5D4F0E10248E5AC900D1D0AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F0E14248E5B7000D1D0AE /* Home.storyboard */,
+				5D4F0E11248E5AFA00D1D0AE /* HomeCoordinator.swift */,
+				5D4F0E13248E5B0200D1D0AE /* ViewControllers */,
+				5DD7DD7B248F275700BDD8D7 /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5D4F0E13248E5B0200D1D0AE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D2A387A247A65A700865D6B /* HomeViewController.swift */,
+				5D2A387C247A65F500865D6B /* LoginViewController.swift */,
+				5D2A387E247A660100865D6B /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5DD7DD7A248F274700BDD8D7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 				5D7B2C7324823A6000A5849B /* TodoViewModel.swift */,
+				5DD7DD78248F214400BDD8D7 /* ProfileViewModel.swift */,
 				5D7B2C752482420F00A5849B /* TodoCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5DD7DD7B248F275700BDD8D7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5DEF4C39248F09A00070B874 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5D2A3867247A62D900865D6B /* Main.storyboard */,
+				5DEF4C3A248F09BB0070B874 /* MainCoordinator.swift */,
+				5DEF4C3C248F09F20070B874 /* ViewControllers */,
+				5D2A3876247A62EC00865D6B /* Views */,
+				5DD7DD7A248F274700BDD8D7 /* ViewModels */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5DEF4C3C248F09F20070B874 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D2A3888247A81D500865D6B /* TodoViewController.swift */,
+				5D02477D247B5ED30041AD79 /* AddTodoViewController.swift */,
+				5D024785247B62840041AD79 /* TodoDetailsViewController.swift */,
+				5D024783247B625C0041AD79 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		7A06A6EB5DD6ED9B6824B58E /* Frameworks */ = {
@@ -281,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4F0E15248E5B7000D1D0AE /* Home.storyboard in Resources */,
 				5D82E115247E13A5008583E7 /* README.md in Resources */,
 				5D2A386E247A62DA00865D6B /* LaunchScreen.storyboard in Resources */,
 				5D02478B247B63680041AD79 /* TodoTableViewCell.xib in Resources */,
@@ -342,23 +401,28 @@
 				5D024786247B62840041AD79 /* TodoDetailsViewController.swift in Sources */,
 				5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
+				5DD7DD79248F214400BDD8D7 /* ProfileViewModel.swift in Sources */,
 				5D024794247B9A850041AD79 /* TodoItem.swift in Sources */,
 				5D024784247B625C0041AD79 /* ProfileViewController.swift in Sources */,
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */,
+				5D4F0E12248E5AFA00D1D0AE /* HomeCoordinator.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
 				5D024796247BA0440041AD79 /* DataService.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
 				5D7B2C762482420F00A5849B /* TodoCellViewModel.swift in Sources */,
 				5D024790247B6EAC0041AD79 /* Constants.swift in Sources */,
+				5D4F0E0F248E587200D1D0AE /* AppCoordinator.swift in Sources */,
 				5D02477E247B5ED30041AD79 /* AddTodoViewController.swift in Sources */,
 				5D7B2C7424823A6000A5849B /* TodoViewModel.swift in Sources */,
 				5D024792247B6FC60041AD79 /* User.swift in Sources */,
 				5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */,
 				5D2A387B247A65A700865D6B /* HomeViewController.swift in Sources */,
+				5D4F0E0D248E582C00D1D0AE /* Coordinator.swift in Sources */,
 				5D691600247C992400446E99 /* AlertType.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
 				5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */,
+				5DEF4C3B248F09BB0070B874 /* MainCoordinator.swift in Sources */,
 				5DD53C99247FC0D200D8C3E5 /* AuthViewModel.swift in Sources */,
 				5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */,
 			);

@@ -11,11 +11,21 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
+protocol TodoViewControllerDelegate {
+    func showAddTodoViewController()
+    func showTodoDetailsViewController(cellViewModel: TodoCellViewModel)
+    func showProfileViewController()
+}
+
 class TodoViewController: UIViewController {
 
     @IBOutlet weak var todoStackView: UIStackView!
     @IBOutlet weak var todoTableView: UITableView!
     
+    @IBOutlet weak var addBarButton: UIBarButtonItem!
+    @IBOutlet weak var profileBarButton: UIBarButtonItem!
+    
+    var delegate: TodoViewControllerDelegate?
     var viewModel: TodoViewModel?
     let disposeBag = DisposeBag()
 
@@ -50,13 +60,8 @@ class TodoViewController: UIViewController {
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.todoTableView.deselectRow(at: indexPath, animated: true)
-                let storyboard = UIStoryboard.init(name: K.StoryboardID.Main, bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoDetailsViewController) as? TodoDetailsViewController {
-                    vc.viewModel = TodoViewModel()
-                    vc.todoCellViewModel = viewModel.todoCellViewModels.value[indexPath.row]
-                    self?.show(vc, sender: self)
-                }
-                
+                let cellViewModel = viewModel.todoCellViewModels.value[indexPath.row]
+                self?.delegate?.showTodoDetailsViewController(cellViewModel: cellViewModel)
             }).disposed(by: disposeBag)
         
         viewModel.getTodoList()
@@ -88,29 +93,20 @@ class TodoViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    @IBAction func addTODOButtonTapped(_ sender: UIButton) {
+    @IBAction func addTodoButtonTapped(_ sender: UIButton) {
         addTodoItem()
     }
     
-    @IBAction func addBarButon(_ sender: UIBarButtonItem) {
+    @IBAction func addTodoBarButon(_ sender: UIBarButtonItem) {
         addTodoItem()
     }
     
     func addTodoItem() {
-        let storyboard = UIStoryboard.init(name: K.StoryboardID.Main, bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.AddTodoViewController) as? AddTodoViewController {
-            vc.viewModel = TodoViewModel()
-            show(vc, sender: self)
-        }
+        delegate?.showAddTodoViewController()
     }
     
     @IBAction func profileBarButtonTapped(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard.init(name: K.StoryboardID.Main, bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.ProfileViewController) as? ProfileViewController {
-            vc.viewModel = TodoViewModel()
-            vc.authViewModel = AuthViewModel()
-            show(vc, sender: self)
-        }
+        delegate?.showProfileViewController()
     }
     
     deinit {

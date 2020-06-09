@@ -16,8 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
 
-    var viewModel: TodoViewModel?
-    var authViewModel: AuthViewModel?
+    var viewModel: ProfileViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        guard let viewModel = viewModel, let authViewModel = authViewModel else { return }
+        guard let viewModel = viewModel else { return }
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -49,22 +48,6 @@ class ProfileViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        authViewModel
-            .onShowMessage
-            .map { [weak self] alertMessage in
-                self?.showMessage(alertMessage: alertMessage)
-        }
-        .subscribe()
-        .disposed(by: disposeBag)
-        
-        authViewModel
-            .onNextNavigation
-            .subscribe(onNext: { [weak self] in
-                DispatchQueue.main.async {
-                    self?.moveToInitialViewController()
-                }
-            }).disposed(by: disposeBag)
-        
         viewModel
             .onShowLoading
             .subscribe(onNext: { [weak self] isLoading in
@@ -77,8 +60,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        guard let authViewModel = authViewModel else { return }
-        authViewModel.logout()
+        guard let viewModel = viewModel else { return }
+        viewModel.logout()
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {

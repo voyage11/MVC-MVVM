@@ -19,6 +19,16 @@ final class TodoViewModel {
     
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
+    
+    let onShowAddTodoViewController = PublishSubject<Void>()
+    let onShowTodoDetailsViewController = PublishSubject<TodoCellViewModel>()
+    let onShowProfileViewController = PublishSubject<Void>()
+
+//    func showAddTodoViewController()
+//    func showTodoDetailsViewController(cellViewModel: TodoCellViewModel)
+//    func showProfileViewController()
+    
+    
     var onShowLoading: Observable<Bool> {
         return loading
             .asObservable()
@@ -27,7 +37,7 @@ final class TodoViewModel {
     
     var todoCellViewModels = BehaviorRelay<[TodoCellViewModel]>(value: [])
     
-    init(dataService: DataService = DataService()) {
+    init(dataService: DataService) {
         self.dataService = dataService
     }
     
@@ -90,22 +100,9 @@ final class TodoViewModel {
         ).disposed(by: disposeBag)
     }
     
-    func saveProfile(name: String) {
-        self.loading.accept(true)
-        dataService.saveProfile(name: name)
-            .subscribe(
-                onNext: { [weak self] in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message:"Name is saved successfully.", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
-                    self?.onNextNavigation.onNext(())
-                },
-                onError: { [weak self] error in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
-                }
-        ).disposed(by: disposeBag)
+    func showAdd() {
+        print("showAdd")
+        self.onShowAddTodoViewController.onNext(())
     }
     
 }

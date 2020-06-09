@@ -22,8 +22,8 @@ struct K {
     
     struct StoryboardID {
         static let Main = "Main"
-        static let InitialNavigationController = "InitialNavigationController"
-        static let TodoNavigationController = "TodoNavigationController"
+        static let Home = "Home"
+        static let HomeViewController = "HomeViewController"
         static let LoginViewController = "LoginViewController"
         static let SignUpViewController = "SignUpViewController"
         static let TodoViewController = "TodoViewController"

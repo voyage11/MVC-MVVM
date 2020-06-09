@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  mvc-mvvm
 //
 //  Created by Ricky on 24/5/20.
@@ -8,12 +8,12 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import SwiftMessages
 import RxSwift
 import RxCocoa
 import RxSwiftExt
-import NVActivityIndicatorView
 
-class LoginViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
@@ -23,12 +23,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Login"
+        self.title = "Signup"
         emailTextField.delegate = self
         passwordTextField.delegate = self
         bindViewModel()
     }
-    
+
     private func bind(textField: UITextField, to behaviorRelay: BehaviorRelay<String>) {
         behaviorRelay.asObservable()
             .bind(to: textField.rx.text)
@@ -57,12 +57,6 @@ class LoginViewController: UIViewController {
             }
             .subscribe()
             .disposed(by: disposeBag)
-            
-        viewModel
-        .onNextNavigation
-            .subscribe(onNext: { [weak self] in
-                self?.moveToTODOViewController()
-            }).disposed(by: disposeBag)
         
         viewModel
             .onShowLoading
@@ -75,14 +69,14 @@ class LoginViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    private func login() {
+    private func signUp() {
         if let viewModel = viewModel {
-            viewModel.login()
+            viewModel.signUp()
         }
     }
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        login()
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        signUp()
     }
     
     deinit {
@@ -91,13 +85,13 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController: UITextFieldDelegate {
+extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            login()
+            signUp()
         }
         return false
     }

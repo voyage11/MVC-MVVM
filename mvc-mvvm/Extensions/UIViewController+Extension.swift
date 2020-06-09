@@ -35,32 +35,4 @@ extension UIViewController: NVActivityIndicatorViewable {
         }
     }
     
-    func moveToTODOViewController() {
-        DispatchQueue.main.async {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-                let window = appDelegate.window {
-                let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
-                if let navVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoNavigationController) as? UINavigationController {
-                    if let todoViewController = navVC.viewControllers.first as? TodoViewController {
-                        todoViewController.viewModel = TodoViewModel()
-                    }
-                    window.rootViewController = navVC
-                    window.makeKeyAndVisible()
-                }
-            }
-        }
-    }
-    
-    func moveToInitialViewController() {
-        DispatchQueue.main.async {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-                let window = appDelegate.window {
-                let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.InitialNavigationController)
-                window.rootViewController = vc
-                window.makeKeyAndVisible()
-            }
-        }
-    }
-    
 }
