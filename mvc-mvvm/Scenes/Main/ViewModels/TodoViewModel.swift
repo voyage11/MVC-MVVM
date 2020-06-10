@@ -19,16 +19,6 @@ final class TodoViewModel {
     
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
-    
-    let onShowAddTodoViewController = PublishSubject<Void>()
-    let onShowTodoDetailsViewController = PublishSubject<TodoCellViewModel>()
-    let onShowProfileViewController = PublishSubject<Void>()
-
-//    func showAddTodoViewController()
-//    func showTodoDetailsViewController(cellViewModel: TodoCellViewModel)
-//    func showProfileViewController()
-    
-    
     var onShowLoading: Observable<Bool> {
         return loading
             .asObservable()
@@ -62,6 +52,10 @@ final class TodoViewModel {
                     }
             ).disposed(by: disposeBag)
         }
+    }
+    
+    func removeListener() {
+        dataService.removeListener()
     }
     
     func addTodoItem(todoItem: TodoItem) {
@@ -98,11 +92,6 @@ final class TodoViewModel {
                     self?.onShowMessage.onNext(alertMessage)
                 }
         ).disposed(by: disposeBag)
-    }
-    
-    func showAdd() {
-        print("showAdd")
-        self.onShowAddTodoViewController.onNext(())
     }
     
 }

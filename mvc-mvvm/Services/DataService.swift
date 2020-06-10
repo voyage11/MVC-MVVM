@@ -9,9 +9,10 @@
 import Firebase
 import RxSwift
 
-struct DataService {
+class DataService {
     
     let db = Firestore.firestore()
+    private var listener: ListenerRegistration?
     
     func addTodoItem(todoItem: TodoItem) -> Observable<Void> {
         return Observable<Void>.create { observer -> Disposable in
@@ -32,7 +33,7 @@ struct DataService {
     
     func getTodoList(uid: String) -> Observable<[TodoItem]> {
         return Observable<[TodoItem]>.create { observer -> Disposable in
-            self.db.collection(K.FStore.todolist)
+            self.listener = self.db.collection(K.FStore.todolist)
                 .whereField(K.FStore.uid, isEqualTo: uid)
                 .order(by: K.FStore.date)
                 .addSnapshotListener { (snapshot, error) in
@@ -58,6 +59,10 @@ struct DataService {
             }
             return Disposables.create()
         }
+    }
+    
+    func removeListener() {
+        listener?.remove()
     }
     
     func deleteTodoItem(id: String) -> Observable<Void> {

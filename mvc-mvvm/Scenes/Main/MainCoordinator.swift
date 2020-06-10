@@ -30,13 +30,11 @@ class MainCoordinator: Coordinator {
     
     lazy var profileViewModel: ProfileViewModel! = {
         let viewModel = ProfileViewModel(authService: AuthenticationService(), dataService: DataService())
-        
         viewModel
         .onShowHomeViewController
             .subscribe(onNext: { [weak self] in
                 self?.delegate?.showHomeViewController()
             }).disposed(by: disposeBag)
-        
         return viewModel
     }()
 
@@ -47,9 +45,14 @@ class MainCoordinator: Coordinator {
     override func start() {
         rootViewController.delegate = self
     }
-    
+
     override func finish() {
-        // Clean up any view controllers. Pop them of the navigation stack for example.
+        //Clean up to prevent memory leak
+        rootViewController.delegate = nil
+    }
+    
+    deinit {
+        //print("\(String(describing: type(of: self))) deinit")
     }
     
 }
@@ -79,4 +82,3 @@ extension MainCoordinator: TodoViewControllerDelegate {
     }
     
 }
-

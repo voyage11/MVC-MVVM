@@ -13,16 +13,20 @@ class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     let window: UIWindow?
-    //let db = Firestore.firestore()
+    
+    init(window: UIWindow?) {
+        self.window = window
+    }
     
     lazy var rootViewController: UINavigationController = {
         return UINavigationController(rootViewController: UIViewController())
     }()
-    
-    // MARK: - Coordinator
-    init(window: UIWindow?) {
-        self.window = window
-    }
+        
+    // MARK: VM / VC's
+    lazy var todoViewModel: TodoViewModel! = {
+        let viewModel = TodoViewModel(dataService: DataService())
+        return viewModel
+    }()
 
     override func start() {
         guard let window = window else {
@@ -39,7 +43,17 @@ class AppCoordinator: Coordinator {
     }
 
     override func finish() {
-        
+        for coordinator in childCoordinators {
+            coordinator.finish()
+            if let coordinator = coordinator as? MainCoordinator {
+                coordinator.delegate = nil
+            }
+            if let coordinator = coordinator as? HomeCoordinator {
+                coordinator.delegate = nil
+            }
+        }
+        removeAllChildCoordinators()
+        rootViewController.popToRootViewController(animated: false)
     }
     
 }
@@ -47,24 +61,19 @@ class AppCoordinator: Coordinator {
 extension AppCoordinator: HomeCoordinatorDelegate, MainCoordinatorDelegate {
     
     func showTodoViewController() {
-        removeAllChildCoordinators()
-        if let vc = rootViewController.viewControllers.last {
-            vc.navigationController?.popToRootViewController(animated: false)
-        }
+        finish()
         let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
         let todoVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoViewController) as! TodoViewController
-        todoVC.viewModel = TodoViewModel(dataService: DataService())
+        todoVC.viewModel = todoViewModel
         let mainCoordinator = MainCoordinator(rootViewController: todoVC)
+        addChildCoordinator(mainCoordinator)
         mainCoordinator.delegate = self
         rootViewController.setViewControllers([todoVC], animated: false)
         mainCoordinator.start()
     }
     
     func showHomeViewController() {
-        removeAllChildCoordinators()
-        if let vc = rootViewController.viewControllers.last {
-            vc.navigationController?.popToRootViewController(animated: false)
-        }
+        finish()
         let storyboard = UIStoryboard(name: K.StoryboardID.Home, bundle: nil)
         let homeVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.HomeViewController) as! HomeViewController
         let homeCoordinator = HomeCoordinator(rootViewController: homeVC)

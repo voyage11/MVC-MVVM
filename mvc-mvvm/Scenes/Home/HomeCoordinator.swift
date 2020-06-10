@@ -29,7 +29,7 @@ class HomeCoordinator: Coordinator {
         .onShowTodoViewController
             .subscribe(onNext: { [weak self] in
                 self?.delegate?.showTodoViewController()
-            }).disposed(by: disposeBag)        
+            }).disposed(by: disposeBag)
         return viewModel
     }()
 
@@ -42,9 +42,13 @@ class HomeCoordinator: Coordinator {
     }
     
     override func finish() {
-        // Clean up any view controllers. Pop them of the navigation stack for example.
+        //Clean up to prevent memory leak
+        rootViewController.delegate = nil
     }
     
+    deinit {
+        //print("\(String(describing: type(of: self))) deinit")
+    }
 }
 
 

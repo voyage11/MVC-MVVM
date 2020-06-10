@@ -111,6 +111,8 @@ class TodoViewController: UIViewController {
     
     deinit {
         //print("\(String(describing: type(of: self))) deinit")
+        //Remove Listener
+        viewModel?.removeListener()
     }
     
 }
