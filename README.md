@@ -4,8 +4,8 @@ This is just a simple Todo iOS App project to show the transition from MVC imple
 
 There are 3 branches in this project:-  
 **MVC Branch:** It is implemented using MVC.  
-**Master Branch:** It is converted from MVC to MVVM with the help of RxSwift.
-**MVVM-Coordinator:** It is MVVM + Coordinator pattern. Coordinator is basically a few classes that help in coordinating the app navigation. Coordinator also carries the responsibility to instantiate and inject dependencies for View Controller and View Models.
+**Master Branch:** It is converted from MVC to MVVM with the help of RxSwift.  
+**MVVM-Coordinator:** It is MVVM + Coordinator pattern. Coordinator is basically a few classes that help in coordinating the app navigation. Coordinator also carries the responsibility to instantiate and inject dependencies for View Controller and View Models.  
 
 
 ## MVC (Model, View, Controller)
