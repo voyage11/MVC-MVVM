@@ -9,12 +9,17 @@
 import UIKit
 import RxSwift
 
+protocol TodoDetailsViewControllerDelegate {
+    func popViewController()
+}
+
 class TodoDetailsViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var delegate: TodoDetailsViewControllerDelegate?
     var todoCellViewModel: TodoCellViewModel?
     var viewModel: TodoViewModel?
     let disposeBag = DisposeBag()
@@ -44,7 +49,7 @@ class TodoDetailsViewController: UIViewController {
             .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
-                    self?.navigationController?.popViewController(animated: true)
+                    self?.delegate?.popViewController()
                 }
             }).disposed(by: disposeBag)
         
@@ -69,7 +74,9 @@ class TodoDetailsViewController: UIViewController {
     }
 
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

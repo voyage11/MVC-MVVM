@@ -80,7 +80,9 @@ class SignUpViewController: UIViewController {
     }
     
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import RxSwift
 import RxCocoa
 
@@ -92,6 +91,12 @@ final class TodoViewModel {
                     self?.onShowMessage.onNext(alertMessage)
                 }
         ).disposed(by: disposeBag)
+    }
+    
+    deinit {
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

@@ -2,8 +2,8 @@
 //  AppCoordinator.swift
 //  mvc-mvvm
 //
-//  Created by RandomMac on 8/6/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 8/6/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ class AppCoordinator: Coordinator {
         self.window = window
     }
     
-    lazy var rootViewController: UINavigationController = {
+    lazy var navigationController: UINavigationController = {
         return UINavigationController(rootViewController: UIViewController())
     }()
         
@@ -38,7 +38,7 @@ class AppCoordinator: Coordinator {
         } else {
             showHomeViewController()
         }
-        window.rootViewController = rootViewController
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 
@@ -53,7 +53,7 @@ class AppCoordinator: Coordinator {
             }
         }
         removeAllChildCoordinators()
-        rootViewController.popToRootViewController(animated: false)
+        navigationController.popToRootViewController(animated: false)
     }
     
 }
@@ -65,10 +65,10 @@ extension AppCoordinator: HomeCoordinatorDelegate, MainCoordinatorDelegate {
         let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
         let todoVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoViewController) as! TodoViewController
         todoVC.viewModel = todoViewModel
-        let mainCoordinator = MainCoordinator(rootViewController: todoVC)
+        let mainCoordinator = MainCoordinator(rootViewController: todoVC, navigationController: navigationController)
         addChildCoordinator(mainCoordinator)
         mainCoordinator.delegate = self
-        rootViewController.setViewControllers([todoVC], animated: false)
+        navigationController.setViewControllers([todoVC], animated: false)
         mainCoordinator.start()
     }
     
@@ -76,10 +76,10 @@ extension AppCoordinator: HomeCoordinatorDelegate, MainCoordinatorDelegate {
         finish()
         let storyboard = UIStoryboard(name: K.StoryboardID.Home, bundle: nil)
         let homeVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.HomeViewController) as! HomeViewController
-        let homeCoordinator = HomeCoordinator(rootViewController: homeVC)
+        let homeCoordinator = HomeCoordinator(rootViewController: homeVC, navigationController: navigationController)
         addChildCoordinator(homeCoordinator)
         homeCoordinator.delegate = self
-        rootViewController.setViewControllers([homeVC], animated: false)
+        navigationController.setViewControllers([homeVC], animated: false)
         homeCoordinator.start()
     }
     

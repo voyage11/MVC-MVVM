@@ -83,6 +83,12 @@ final class AuthViewModel {
         }
     }
     
+    deinit {
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
+    }
+    
 }
 
 

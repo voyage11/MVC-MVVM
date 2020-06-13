@@ -9,11 +9,16 @@
 import UIKit
 import RxSwift
 
+protocol AddTodoViewControllerDelegate {
+    func popViewController()
+}
+
 class AddTodoViewController: UIViewController {
 
     @IBOutlet weak var todoTitleTextField: UITextField!
     @IBOutlet weak var todoDescriptionTextView: UITextView!
     
+    var delegate: AddTodoViewControllerDelegate?
     var viewModel: TodoViewModel?
     let disposeBag = DisposeBag()
     
@@ -38,7 +43,7 @@ class AddTodoViewController: UIViewController {
             .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
-                    self?.navigationController?.popViewController(animated: true)
+                    self?.delegate?.popViewController()
                 }
             }).disposed(by: disposeBag)
         
@@ -66,7 +71,9 @@ class AddTodoViewController: UIViewController {
     }
     
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

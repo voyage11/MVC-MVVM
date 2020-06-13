@@ -2,8 +2,8 @@
 //  Coordinator.swift
 //  mvc-mvvm
 //
-//  Created by RandomMac on 8/6/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 8/6/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 class Coordinator {

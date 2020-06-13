@@ -2,8 +2,8 @@
 //  MainCoordinator.swift
 //  mvc-mvvm
 //
-//  Created by RandomMac on 9/6/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 9/6/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 import UIKit
@@ -18,6 +18,7 @@ class MainCoordinator: Coordinator {
   
     // MARK: - Properties
     let rootViewController: TodoViewController
+    let navigationController: UINavigationController
     let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
     var delegate: MainCoordinatorDelegate?
     let disposeBag = DisposeBag()
@@ -38,8 +39,9 @@ class MainCoordinator: Coordinator {
         return viewModel
     }()
 
-    init(rootViewController: TodoViewController) {
+    init(rootViewController: TodoViewController, navigationController: UINavigationController) {
         self.rootViewController = rootViewController
+        self.navigationController = navigationController
     }
 
     override func start() {
@@ -52,7 +54,9 @@ class MainCoordinator: Coordinator {
     }
     
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }
@@ -62,23 +66,33 @@ extension MainCoordinator: TodoViewControllerDelegate {
     func showAddTodoViewController() {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.AddTodoViewController) as? AddTodoViewController {
             vc.viewModel = todoViewModel
-            rootViewController.navigationController?.show(vc, sender: nil)
+            vc.delegate = self
+            navigationController.show(vc, sender: nil)
         }
     }
     
     func showProfileViewController() {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.ProfileViewController) as? ProfileViewController {
             vc.viewModel = profileViewModel
-            rootViewController.navigationController?.show(vc, sender: nil)
+            vc.delegate = self
+            navigationController.show(vc, sender: nil)
         }
     }
     
-    func showTodoDetailsViewController(cellViewModel: TodoCellViewModel) {
+    func showTodoDetailsViewController(_ cellViewModel: TodoCellViewModel) {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoDetailsViewController) as? TodoDetailsViewController {
             vc.viewModel = todoViewModel
             vc.todoCellViewModel = cellViewModel
-            rootViewController.navigationController?.show(vc, sender: nil)
+            vc.delegate = self
+            navigationController.show(vc, sender: nil)
         }
     }
     
+}
+
+
+extension MainCoordinator: AddTodoViewControllerDelegate, ProfileViewControllerDelegate, TodoDetailsViewControllerDelegate {
+    func popViewController() {
+        navigationController.popViewController(animated: true)
+    }
 }

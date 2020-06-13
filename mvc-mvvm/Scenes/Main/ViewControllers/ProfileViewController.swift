@@ -10,12 +10,17 @@ import UIKit
 import SkyFloatingLabelTextField
 import RxSwift
 
+protocol ProfileViewControllerDelegate {
+    func popViewController()
+}
+
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var uidTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
 
+    var delegate: ProfileViewControllerDelegate?
     var viewModel: ProfileViewModel?
     let disposeBag = DisposeBag()
     
@@ -44,7 +49,7 @@ class ProfileViewController: UIViewController {
             .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
-                    self?.navigationController?.popViewController(animated: true)
+                    self?.delegate?.popViewController()
                 }
             }).disposed(by: disposeBag)
         
@@ -76,7 +81,9 @@ class ProfileViewController: UIViewController {
     }
 
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

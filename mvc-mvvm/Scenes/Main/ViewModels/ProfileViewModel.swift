@@ -2,8 +2,8 @@
 //  ProfileViewModel.swift
 //  mvc-mvvm
 //
-//  Created by RandomMac on 9/6/20.
-//  Copyright © 2020 RandomMac. All rights reserved.
+//  Created by Ricky on 9/6/20.
+//  Copyright © 2020 Ricky. All rights reserved.
 //
 
 import Foundation
@@ -68,6 +68,12 @@ final class ProfileViewModel {
                     self?.onShowMessage.onNext(alertMessage)
                 }
         ).disposed(by: disposeBag)
+    }
+    
+    deinit {
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }
