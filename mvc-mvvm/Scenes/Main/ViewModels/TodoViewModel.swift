@@ -16,6 +16,7 @@ final class TodoViewModel {
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     
+    let title = "TODO"
     let onShowMessage = PublishSubject<AlertMessage>()
     let onNextNavigation = PublishSubject<Void>()
     var onShowLoading: Observable<Bool> {
@@ -51,10 +52,6 @@ final class TodoViewModel {
                     }
             ).disposed(by: disposeBag)
         }
-    }
-    
-    func removeListener() {
-        dataService.removeListener()
     }
     
     func addTodoItem(todoItem: TodoItem) {
@@ -97,6 +94,7 @@ final class TodoViewModel {
         if K.showPrint {
             print("\(String(describing: type(of: self))) deinit")
         }
+        dataService.removeListener()
     }
     
 }

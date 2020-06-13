@@ -20,17 +20,16 @@ class TodoDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var delegate: TodoDetailsViewControllerDelegate?
-    var todoCellViewModel: TodoCellViewModel?
-    var viewModel: TodoViewModel?
+    var viewModel: TodoDetailsViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let todoCellViewModel = todoCellViewModel {
-            self.title = todoCellViewModel.title
-            titleLabel.text = todoCellViewModel.title
-            descriptionLabel.text = todoCellViewModel.description
-            dateLabel.text = todoCellViewModel.dateString()
+        if let viewModel = viewModel {
+            self.title = viewModel.todoCellViewModel.title
+            titleLabel.text = viewModel.todoCellViewModel.title
+            descriptionLabel.text = viewModel.todoCellViewModel.description
+            dateLabel.text = viewModel.todoCellViewModel.dateString()
         }
         bindViewModel()
     }
@@ -65,9 +64,8 @@ class TodoDetailsViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
-        guard let todoCellViewModel = todoCellViewModel,
-            let id = todoCellViewModel.id,
-            let viewModel = viewModel else {
+        guard let viewModel = viewModel,
+            let id = viewModel.todoCellViewModel.id else {
             return
         }
         viewModel.deleteTodoItem(id: id)

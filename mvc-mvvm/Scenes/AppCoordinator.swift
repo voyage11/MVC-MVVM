@@ -21,13 +21,7 @@ class AppCoordinator: Coordinator {
     lazy var navigationController: UINavigationController = {
         return UINavigationController(rootViewController: UIViewController())
     }()
-        
-    // MARK: VM / VC's
-    lazy var todoViewModel: TodoViewModel! = {
-        let viewModel = TodoViewModel(dataService: DataService())
-        return viewModel
-    }()
-
+    
     override func start() {
         guard let window = window else {
             return
@@ -64,7 +58,7 @@ extension AppCoordinator: HomeCoordinatorDelegate, MainCoordinatorDelegate {
         finish()
         let storyboard = UIStoryboard(name: K.StoryboardID.Main, bundle: nil)
         let todoVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoViewController) as! TodoViewController
-        todoVC.viewModel = todoViewModel
+        todoVC.viewModel = TodoViewModel(dataService: DataService())
         let mainCoordinator = MainCoordinator(rootViewController: todoVC, navigationController: navigationController)
         addChildCoordinator(mainCoordinator)
         mainCoordinator.delegate = self

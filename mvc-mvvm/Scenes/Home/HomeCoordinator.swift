@@ -24,16 +24,26 @@ class HomeCoordinator: Coordinator {
     let disposeBag = DisposeBag()
 
     // MARK: VM / VC's
-    lazy var authViewModel: AuthViewModel! = {
-        let viewModel = AuthViewModel(authService: AuthenticationService())
+    lazy var loginViewModel: LoginViewModel! = {
+        let viewModel = LoginViewModel(authService: AuthenticationService())
         viewModel
-        .onShowTodoViewController
+        .onNextNavigation
             .subscribe(onNext: { [weak self] in
                 self?.delegate?.showTodoViewController()
             }).disposed(by: disposeBag)
         return viewModel
     }()
 
+    lazy var signUpViewModel: SignUpViewModel! = {
+        let viewModel = SignUpViewModel(authService: AuthenticationService())
+        viewModel
+        .onNextNavigation
+            .subscribe(onNext: { [weak self] in
+                self?.delegate?.showTodoViewController()
+            }).disposed(by: disposeBag)
+        return viewModel
+    }()
+    
     init(rootViewController: HomeViewController, navigationController: UINavigationController) {
         self.rootViewController = rootViewController
         self.navigationController = navigationController
@@ -60,14 +70,14 @@ extension HomeCoordinator: HomeViewControllerDelegate {
     
     func showLoginViewController() {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.LoginViewController) as? LoginViewController {
-            vc.viewModel = authViewModel
+            vc.viewModel = loginViewModel
             navigationController.show(vc, sender: nil)
         }
     }
     
     func showSignUpViewController() {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.SignUpViewController) as? SignUpViewController {
-            vc.viewModel = authViewModel
+            vc.viewModel = signUpViewModel
             navigationController.show(vc, sender: nil)
         }
     }

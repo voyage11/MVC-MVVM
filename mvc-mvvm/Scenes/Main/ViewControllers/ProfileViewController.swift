@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Profile"
+        self.title = viewModel?.title
         let user = User()
         uidTextField.text = user.uid
         emailTextField.text = user.email

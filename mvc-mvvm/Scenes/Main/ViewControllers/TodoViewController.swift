@@ -13,7 +13,7 @@ import RxSwiftExt
 
 protocol TodoViewControllerDelegate {
     func showAddTodoViewController()
-    func showTodoDetailsViewController(_ cellViewModel: TodoCellViewModel)
+    func showTodoDetailsViewController(_ todoCellViewModel: TodoCellViewModel)
     func showProfileViewController()
 }
 
@@ -31,7 +31,7 @@ class TodoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TODO"
+        self.title = viewModel?.title
         todoTableView.register(UINib(nibName: K.TableCell.TodoTableViewCell, bundle: nil), forCellReuseIdentifier: K.TableCell.TodoTableViewCell)
         todoTableView.tableFooterView = UIView()
         todoTableView.dataSource = self
@@ -60,8 +60,8 @@ class TodoViewController: UIViewController {
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.todoTableView.deselectRow(at: indexPath, animated: true)
-                let cellViewModel = viewModel.todoCellViewModels.value[indexPath.row]
-                self?.delegate?.showTodoDetailsViewController(cellViewModel)
+                let todoCellViewModel = viewModel.todoCellViewModels.value[indexPath.row]
+                self?.delegate?.showTodoDetailsViewController(todoCellViewModel)
             }).disposed(by: disposeBag)
         
         viewModel.getTodoList()
@@ -105,8 +105,6 @@ class TodoViewController: UIViewController {
         if K.showPrint {
             print("\(String(describing: type(of: self))) deinit")
         }
-        //Remove Listener
-        viewModel?.removeListener()
     }
     
 }

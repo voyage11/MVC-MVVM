@@ -15,6 +15,7 @@ final class ProfileViewModel {
     private let authService: AuthenticationService
     private let dataService: DataService
 
+    let title = "Profile"
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     

@@ -23,12 +23,7 @@ class MainCoordinator: Coordinator {
     var delegate: MainCoordinatorDelegate?
     let disposeBag = DisposeBag()
 
-    // MARK: VM / VC's
-    lazy var todoViewModel: TodoViewModel! = {
-        let viewModel = TodoViewModel(dataService: DataService())
-        return viewModel
-    }()
-    
+    // MARK: VM / VC's        
     lazy var profileViewModel: ProfileViewModel! = {
         let viewModel = ProfileViewModel(authService: AuthenticationService(), dataService: DataService())
         viewModel
@@ -65,7 +60,7 @@ extension MainCoordinator: TodoViewControllerDelegate {
     
     func showAddTodoViewController() {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.AddTodoViewController) as? AddTodoViewController {
-            vc.viewModel = todoViewModel
+            vc.viewModel = AddTodoViewModel(dataService: DataService())
             vc.delegate = self
             navigationController.show(vc, sender: nil)
         }
@@ -79,10 +74,9 @@ extension MainCoordinator: TodoViewControllerDelegate {
         }
     }
     
-    func showTodoDetailsViewController(_ cellViewModel: TodoCellViewModel) {
+    func showTodoDetailsViewController(_ todoCellViewModel: TodoCellViewModel) {
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoDetailsViewController) as? TodoDetailsViewController {
-            vc.viewModel = todoViewModel
-            vc.todoCellViewModel = cellViewModel
+            vc.viewModel = TodoDetailsViewModel(dataService: DataService(), todoCellViewModel: todoCellViewModel)
             vc.delegate = self
             navigationController.show(vc, sender: nil)
         }

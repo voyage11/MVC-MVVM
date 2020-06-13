@@ -19,12 +19,12 @@ class AddTodoViewController: UIViewController {
     @IBOutlet weak var todoDescriptionTextView: UITextView!
     
     var delegate: AddTodoViewControllerDelegate?
-    var viewModel: TodoViewModel?
+    var viewModel: AddTodoViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add a TODO Item"
+        self.title = viewModel?.title
         todoTitleTextField.delegate = self
         bindViewModel()
     }
