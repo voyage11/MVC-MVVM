@@ -16,13 +16,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
 
-    var viewModel: TodoViewModel?
-    var authViewModel: AuthViewModel?
+    var viewModel: ProfileViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Profile"
+        self.title = viewModel?.title
         let user = User()
         uidTextField.text = user.uid
         emailTextField.text = user.email
@@ -32,7 +31,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        guard let viewModel = viewModel, let authViewModel = authViewModel else { return }
+        guard let viewModel = viewModel else { return }
         viewModel
             .onShowMessage
             .map { [weak self] alertMessage in
@@ -49,16 +48,8 @@ class ProfileViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        authViewModel
-            .onShowMessage
-            .map { [weak self] alertMessage in
-                self?.showMessage(alertMessage: alertMessage)
-        }
-        .subscribe()
-        .disposed(by: disposeBag)
-        
-        authViewModel
-            .onNextNavigation
+        viewModel
+            .onLogout
             .subscribe(onNext: { [weak self] in
                 DispatchQueue.main.async {
                     self?.moveToInitialViewController()
@@ -76,24 +67,26 @@ class ProfileViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
+    private func saveProfile() {
+        guard let viewModel = viewModel else { return }
+        if let name = nameTextField.text {
+            viewModel.saveProfile(name: name)
+        }
+    }
+    
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        guard let authViewModel = authViewModel else { return }
-        authViewModel.logout()
+        guard let viewModel = viewModel else { return }
+        viewModel.logout()
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
         saveProfile()
     }
     
-    func saveProfile() {
-        guard let viewModel = viewModel else { return }
-        if let name = nameTextField.text {
-            viewModel.saveProfile(name: name)
-        }
-    }
-
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

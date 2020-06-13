@@ -18,12 +18,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
-    var viewModel: AuthViewModel?
+    var viewModel: LoginViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Login"
+        self.title = viewModel?.title
         emailTextField.delegate = self
         passwordTextField.delegate = self
         bindViewModel()
@@ -86,7 +86,9 @@ class LoginViewController: UIViewController {
     }
     
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

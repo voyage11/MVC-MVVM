@@ -28,13 +28,17 @@
 		5D2A3887247A778B00865D6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */; };
 		5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A3888247A81D500865D6B /* TodoViewController.swift */; };
 		5D691600247C992400446E99 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6915FF247C992400446E99 /* AlertType.swift */; };
+		5D6DB3472494F82F000B4ECE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DB3462494F82F000B4ECE /* LoginViewModel.swift */; };
+		5D6DB3492494F83B000B4ECE /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DB3482494F83B000B4ECE /* SignUpViewModel.swift */; };
+		5D6DB34B2494F849000B4ECE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DB34A2494F849000B4ECE /* ProfileViewModel.swift */; };
+		5D6DB34D2494FBC5000B4ECE /* AddTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DB34C2494FBC5000B4ECE /* AddTodoViewModel.swift */; };
+		5D6DB34F2494FC71000B4ECE /* TodoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DB34E2494FC71000B4ECE /* TodoDetailsViewModel.swift */; };
 		5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D72CCD524809C3B0093763B /* AlertMessage.swift */; };
 		5D7B2C7424823A6000A5849B /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B2C7324823A6000A5849B /* TodoViewModel.swift */; };
 		5D7B2C762482420F00A5849B /* TodoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B2C752482420F00A5849B /* TodoCellViewModel.swift */; };
 		5D82E115247E13A5008583E7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D82E114247E13A4008583E7 /* README.md */; };
 		5D854ABA24873BC00019D657 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D854AB924873BC00019D657 /* GoogleService-Info.plist */; };
 		5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF2334247BDE190060872D /* UITextView+Extension.swift */; };
-		5DD53C99247FC0D200D8C3E5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */; };
 		D5687617DCFCD2BADD611601 /* Pods_mvc_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AF4502D2C6B97199B3499B /* Pods_mvc_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,13 +68,17 @@
 		5D2A3886247A778B00865D6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5D2A3888247A81D500865D6B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		5D6915FF247C992400446E99 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		5D6DB3462494F82F000B4ECE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5D6DB3482494F83B000B4ECE /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		5D6DB34A2494F849000B4ECE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		5D6DB34C2494FBC5000B4ECE /* AddTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewModel.swift; sourceTree = "<group>"; };
+		5D6DB34E2494FC71000B4ECE /* TodoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewModel.swift; sourceTree = "<group>"; };
 		5D72CCD524809C3B0093763B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		5D7B2C7324823A6000A5849B /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		5D7B2C752482420F00A5849B /* TodoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellViewModel.swift; sourceTree = "<group>"; };
 		5D82E114247E13A4008583E7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		5D854AB924873BC00019D657 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DCF2334247BDE190060872D /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
-		5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		67E3714B77A148BBBFD657C2 /* Pods-mvc-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvc-mvvm.release.xcconfig"; path = "Target Support Files/Pods-mvc-mvvm/Pods-mvc-mvvm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,8 +205,12 @@
 		5DD53C97247FC08F00D8C3E5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5DD53C98247FC0D200D8C3E5 /* AuthViewModel.swift */,
+				5D6DB3462494F82F000B4ECE /* LoginViewModel.swift */,
+				5D6DB3482494F83B000B4ECE /* SignUpViewModel.swift */,
+				5D6DB34A2494F849000B4ECE /* ProfileViewModel.swift */,
 				5D7B2C7324823A6000A5849B /* TodoViewModel.swift */,
+				5D6DB34E2494FC71000B4ECE /* TodoDetailsViewModel.swift */,
+				5D6DB34C2494FBC5000B4ECE /* AddTodoViewModel.swift */,
 				5D7B2C752482420F00A5849B /* TodoCellViewModel.swift */,
 			);
 			path = ViewModels;
@@ -339,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6DB3472494F82F000B4ECE /* LoginViewModel.swift in Sources */,
 				5D024786247B62840041AD79 /* TodoDetailsViewController.swift in Sources */,
 				5D2A3889247A81D500865D6B /* TodoViewController.swift in Sources */,
 				5D2A387D247A65F500865D6B /* LoginViewController.swift in Sources */,
@@ -347,10 +360,13 @@
 				5D2A3884247A750800865D6B /* AuthenticationService.swift in Sources */,
 				5D72CCD624809C3B0093763B /* AlertMessage.swift in Sources */,
 				5D2A3879247A632400865D6B /* Authentication.swift in Sources */,
+				5D6DB34D2494FBC5000B4ECE /* AddTodoViewModel.swift in Sources */,
 				5D024796247BA0440041AD79 /* DataService.swift in Sources */,
+				5D6DB3492494F83B000B4ECE /* SignUpViewModel.swift in Sources */,
 				5D2A3862247A62D900865D6B /* AppDelegate.swift in Sources */,
 				5D7B2C762482420F00A5849B /* TodoCellViewModel.swift in Sources */,
 				5D024790247B6EAC0041AD79 /* Constants.swift in Sources */,
+				5D6DB34B2494F849000B4ECE /* ProfileViewModel.swift in Sources */,
 				5D02477E247B5ED30041AD79 /* AddTodoViewController.swift in Sources */,
 				5D7B2C7424823A6000A5849B /* TodoViewModel.swift in Sources */,
 				5D024792247B6FC60041AD79 /* User.swift in Sources */,
@@ -359,8 +375,8 @@
 				5D691600247C992400446E99 /* AlertType.swift in Sources */,
 				5D2A387F247A660100865D6B /* SignUpViewController.swift in Sources */,
 				5DCF2335247BDE190060872D /* UITextView+Extension.swift in Sources */,
-				5DD53C99247FC0D200D8C3E5 /* AuthViewModel.swift in Sources */,
 				5D02478A247B63680041AD79 /* TodoTableViewCell.swift in Sources */,
+				5D6DB34F2494FC71000B4ECE /* TodoDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,12 +14,12 @@ class AddTodoViewController: UIViewController {
     @IBOutlet weak var todoTitleTextField: UITextField!
     @IBOutlet weak var todoDescriptionTextView: UITextView!
     
-    var viewModel: TodoViewModel?
+    var viewModel: AddTodoViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add a TODO Item"
+        self.title = viewModel?.title
         todoTitleTextField.delegate = self
         bindViewModel()
     }
@@ -53,20 +53,21 @@ class AddTodoViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    
-    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
-        saveTodoItem()
-    }
-    
-    func saveTodoItem() {
+    private func saveTodoItem() {
         guard let viewModel = viewModel else { return }
         let user = User()
         let todoItem = TodoItem(title: todoTitleTextField.text!, description: todoDescriptionTextView.text!, date: Date().timeIntervalSince1970, uid: user.uid!, id: nil)
         viewModel.addTodoItem(todoItem: todoItem)
     }
     
+    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
+        saveTodoItem()
+    }
+    
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

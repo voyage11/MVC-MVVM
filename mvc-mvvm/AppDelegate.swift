@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if user.email != nil {
             if let navVC = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.TodoNavigationController) as? UINavigationController {
                 if let todoViewController = navVC.viewControllers.first as? TodoViewController {
-                    todoViewController.viewModel = TodoViewModel()
+                    todoViewController.viewModel = TodoViewModel(dataService: DataService())
                 }
                 window?.rootViewController = navVC
                 window?.makeKeyAndVisible()

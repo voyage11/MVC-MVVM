@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: K.StoryboardID.Main, bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.LoginViewController) as? LoginViewController {
-            vc.viewModel = AuthViewModel()
+            vc.viewModel = LoginViewModel(authService: AuthenticationService())
             show(vc, sender: self)
         }
     }
@@ -25,13 +25,15 @@ class HomeViewController: UIViewController {
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: K.StoryboardID.Main, bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: K.StoryboardID.SignUpViewController) as? SignUpViewController {
-            vc.viewModel = AuthViewModel()
+            vc.viewModel = SignUpViewModel(authService: AuthenticationService())
             show(vc, sender: self)
         }
     }
     
     deinit {
-        //print("\(String(describing: type(of: self))) deinit")
+        if K.showPrint {
+            print("\(String(describing: type(of: self))) deinit")
+        }
     }
     
 }

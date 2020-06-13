@@ -40,5 +40,7 @@ struct K {
         static let uid = "uid"
         static let id = "id"
     }
-    
+ 
+    static let showPrint = false
+
 }
