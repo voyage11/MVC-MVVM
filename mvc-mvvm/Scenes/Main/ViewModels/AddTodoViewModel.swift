@@ -12,7 +12,7 @@ import RxCocoa
 
 final class AddTodoViewModel {
     
-    private let dataService: DataService
+    private let dataService: DataServiceProtocol
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     
@@ -25,26 +25,36 @@ final class AddTodoViewModel {
             .distinctUntilChanged()
     }
     
-    init(dataService: DataService) {
+    var errorType: AlertErrorType? {
+        didSet {
+            self.onShowMessage.onNext(AlertMessageType.message(errorType!))
+        }
+    }
+    
+    init(dataService: DataServiceProtocol) {
         self.dataService = dataService
     }
     
     func addTodoItem(todoItem: TodoItem) {
-        self.loading.accept(true)
-        dataService.addTodoItem(todoItem: todoItem)
-            .subscribe(
-                onNext: { [weak self] in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message:"The TODO item is added.", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
-                    self?.onNextNavigation.onNext(())
-                },
-                onError: { [weak self] error in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
-                }
-        ).disposed(by: disposeBag)
+        if todoItem.title == ""  {
+            self.errorType = .todoTitleRequired
+        } else if todoItem.description == ""  {
+            self.errorType = .todoDescriptionRequired
+        } else {
+            self.loading.accept(true)
+            dataService.addTodoItem(todoItem: todoItem)
+                .subscribe(
+                    onNext: { [weak self] in
+                        self?.loading.accept(false)
+                        self?.errorType = .todoItemAdded
+                        self?.onNextNavigation.onNext(())
+                    },
+                    onError: { [weak self] error in
+                        self?.loading.accept(false)
+                        self?.errorType = .error(error.localizedDescription)
+                    }
+            ).disposed(by: disposeBag)
+        }
     }
     
     deinit {

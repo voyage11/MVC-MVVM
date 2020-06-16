@@ -12,7 +12,7 @@ import RxCocoa
 
 final class TodoViewModel {
     
-    private let dataService: DataService
+    private let dataService: DataServiceProtocol
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     
@@ -26,8 +26,13 @@ final class TodoViewModel {
     }
     
     var todoCellViewModels = BehaviorRelay<[TodoCellViewModel]>(value: [])
+    var errorType: AlertErrorType? {
+        didSet {
+            self.onShowMessage.onNext(AlertMessageType.message(errorType!))
+        }
+    }
     
-    init(dataService: DataService) {
+    init(dataService: DataServiceProtocol) {
         self.dataService = dataService
     }
     
@@ -47,47 +52,30 @@ final class TodoViewModel {
                     },
                     onError: { [weak self] error in
                         self?.loading.accept(false)
-                        let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                        self?.onShowMessage.onNext(alertMessage)
+                        self?.errorType = .error(error.localizedDescription)
                     }
             ).disposed(by: disposeBag)
         }
     }
     
-    func addTodoItem(todoItem: TodoItem) {
-        self.loading.accept(true)
-        dataService.addTodoItem(todoItem: todoItem)
-            .subscribe(
-                onNext: { [weak self] in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message:"The TODO item is added.", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
-                    self?.onNextNavigation.onNext(())
-                },
-                onError: { [weak self] error in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
-                }
-        ).disposed(by: disposeBag)
-    }
-    
     func deleteTodoItem(id: String) {
-        self.loading.accept(true)
-        dataService.deleteTodoItem(id: id)
-            .subscribe(
-                onNext: { [weak self] in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message:"The TODO item is completed.", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
-                    self?.onNextNavigation.onNext(())
-                },
-                onError: { [weak self] error in
-                    self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
-                }
-        ).disposed(by: disposeBag)
+        if id == "" {
+            self.errorType = .idIsRequired
+        } else {
+            self.loading.accept(true)
+            dataService.deleteTodoItem(id: id)
+                .subscribe(
+                    onNext: { [weak self] in
+                        self?.loading.accept(false)
+                        self?.errorType = .todoItemCompleted
+                        self?.onNextNavigation.onNext(())
+                    },
+                    onError: { [weak self] error in
+                        self?.loading.accept(false)
+                        self?.errorType = .error(error.localizedDescription)
+                    }
+            ).disposed(by: disposeBag)
+        }
     }
     
     deinit {

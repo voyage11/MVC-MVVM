@@ -16,4 +16,8 @@ target 'mvc-mvvm' do
   pod 'RxDataSources', '~> 4.0'
   pod 'NVActivityIndicatorView'
   
+  target 'mvc-mvvmTests' do
+       inherit! :search_paths
+   end
+  
 end

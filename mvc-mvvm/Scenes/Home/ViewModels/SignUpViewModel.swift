@@ -12,7 +12,7 @@ import RxCocoa
 
 final class SignUpViewModel {
     
-    private let authService: AuthenticationService
+    private let authService: AuthenticationServiceProtocol
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     
@@ -27,32 +27,33 @@ final class SignUpViewModel {
     
     var email = BehaviorRelay<String>(value: "")
     var password = BehaviorRelay<String>(value: "")
+    var errorType: AlertErrorType? {
+        didSet {
+            self.onShowMessage.onNext(AlertMessageType.message(errorType!))
+        }
+    }
     
-    init(authService: AuthenticationService) {
+    init(authService: AuthenticationServiceProtocol) {
         self.authService = authService
     }
     
     func signUp() {
         if email.value == "" {
-            let alertMessage = AlertMessage(title: "Email Required", message: "Please enter your email.", alertType: .error)
-            self.onShowMessage.onNext(alertMessage)
+            self.errorType = .emailRequired
         } else if password.value == "" {
-            let alertMessage = AlertMessage(title: "Password Required", message: "Please enter your password.", alertType: .error)
-            self.onShowMessage.onNext(alertMessage)
+            self.errorType = .passwordRequired
         } else {
             loading.accept(true)
             let autheticationModel = Authentication(email: email.value, password: password.value)
             authService.signUp(authentication: autheticationModel).subscribe(
                 onNext: { [weak self] in
                     self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message: "Thanks for siging up!", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
+                    self?.errorType = .signUpSuccess
                     self?.onNextNavigation.onNext(())
                 },
                 onError: { [weak self] error in
                     self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
+                    self?.errorType = .error(error.localizedDescription)
                 }
             ).disposed(by: disposeBag)
         }

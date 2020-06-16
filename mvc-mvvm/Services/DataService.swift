@@ -9,7 +9,15 @@
 import Firebase
 import RxSwift
 
-class DataService {
+protocol DataServiceProtocol: class {
+    func addTodoItem(todoItem: TodoItem) -> Observable<Void>
+    func getTodoList(uid: String) -> Observable<[TodoItem]>
+    func deleteTodoItem(id: String) -> Observable<Void>
+    func saveProfile(name: String) -> Observable<Void>
+    func removeListener()
+}
+
+class DataService: DataServiceProtocol {
     
     let db = Firestore.firestore()
     private var listener: ListenerRegistration?

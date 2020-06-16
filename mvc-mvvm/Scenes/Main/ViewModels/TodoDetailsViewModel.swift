@@ -12,7 +12,7 @@ import RxCocoa
 
 final class TodoDetailsViewModel {
     
-    private let dataService: DataService
+    private let dataService: DataServiceProtocol
     private let disposeBag = DisposeBag()
     private let loading = BehaviorRelay(value: false)
     
@@ -24,8 +24,14 @@ final class TodoDetailsViewModel {
             .asObservable()
             .distinctUntilChanged()
     }
-        
-    init(dataService: DataService, todoCellViewModel: TodoCellViewModel) {
+    
+    var errorType: AlertErrorType? {
+        didSet {
+            self.onShowMessage.onNext(AlertMessageType.message(errorType!))
+        }
+    }
+    
+    init(dataService: DataServiceProtocol, todoCellViewModel: TodoCellViewModel) {
         self.dataService = dataService
         self.todoCellViewModel = todoCellViewModel
     }
@@ -36,14 +42,12 @@ final class TodoDetailsViewModel {
             .subscribe(
                 onNext: { [weak self] in
                     self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Success", message:"The TODO item is completed.", alertType: .success)
-                    self?.onShowMessage.onNext(alertMessage)
+                    self?.errorType = .todoItemCompleted
                     self?.onNextNavigation.onNext(())
                 },
                 onError: { [weak self] error in
                     self?.loading.accept(false)
-                    let alertMessage = AlertMessage(title: "Error", message: error.localizedDescription, alertType: .error)
-                    self?.onShowMessage.onNext(alertMessage)
+                    self?.errorType = .error(error.localizedDescription)
                 }
         ).disposed(by: disposeBag)
     }

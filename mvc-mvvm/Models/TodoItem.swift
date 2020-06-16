@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TodoItem {
+struct TodoItem: Decodable {
     
     let title: String
     let description: String

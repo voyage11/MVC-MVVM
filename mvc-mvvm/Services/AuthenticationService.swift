@@ -9,7 +9,13 @@
 import Firebase
 import RxSwift
 
-struct AuthenticationService {
+protocol AuthenticationServiceProtocol  {
+    func login(authentication: Authentication) -> Observable<Void>
+    func signUp(authentication: Authentication) -> Observable<Void>
+    func logout() -> Observable<Void>
+}
+
+struct AuthenticationService: AuthenticationServiceProtocol {
     
     func login(authentication: Authentication) -> Observable<Void> {
         return Observable<Void>.create { observer -> Disposable in
