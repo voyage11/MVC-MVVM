@@ -35,7 +35,8 @@ To reduce the responsibility of View Controller, View Model layer is created.
 Coordinator pattern has been added on top of MVVM to further remove the reponsibility related to app navigation from View Controller. Cooordinator classes will also be used to instantiate and inject dependencies for View Controller and View Model.  
 
 
-I just started to use MVVM (together with RxSwift) about 1.5 years ago. I have developed this simple Todo app to showcase the iOS App development using 2 different software architectures. Coordinator pattern and Unit Testing have been added on top of MVVM.
+## Personal Note
+I started to use MVVM (together with RxSwift) about 1.5 years ago (Early 2019). My code is not perfect. I am a lifelong learner. I developed this simple Todo app to share the iOS app development using 2 different software architectures. Coordinator pattern and Unit Testing have been added on top of MVVM.
 
 This Todo Project have the following functions:-
 - Login
