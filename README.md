@@ -2,11 +2,11 @@
 
 This is just a simple Todo iOS App project to show the transition from MVC implementation to MVVM Implementation. 
 
-There are 3 branches in this project:-  
+There are 4 branches in this project:-  
 **MVC Branch:** It is implemented using MVC.  
 **Master Branch:** It is converted from MVC to MVVM with the help of RxSwift.  
 **MVVM-Coordinator:** It is MVVM + Coordinator pattern. Coordinator is basically a few classes that help in coordinating the app navigation. Coordinator also carries the responsibility to instantiate and inject dependencies for View Controller and View Model.  
-
+**UnitTesting:** The codes from **MVVM-Coordinator** branch has been refactored so that unit testing can be conducted easier. ViewModel is the main targeted test unit. There is a still room for improvement on the testings.  
 
 ## MVC (Model, View, Controller)
 This is a common software architectural pattern for most iOS projects. I have been using MVC for about 6 years of my iOS Career. 
@@ -19,19 +19,23 @@ Inside a MVC project, normally the codes have been distributed into a few layers
 **Controller:** In iOS, we only have View Controller. From the name itself, it shows that it is both view and controller. So, there is no clear distinguish between view and controller inside a View Controller. Sometimes, View Controller may contains some View related codes due to various reasons.  
 **Utilities:** Contain small classes/structs/enums for constant declarations, utility/helper functions, settings/configurations.  
 **Extension:** Extend the capability of View and View Controllers to synch the consistency and avoid codes repetition.  
-**Service:** Contain codes related to data storage or API requests.
+**Service:** Contain codes related to data storage or API requests.  
 
 
 ## For MVVM (Model, View, View Model)
-What exactly is MVVM? It is an improved software architectural pattern over the MVC. 
+What exactly is MVVM? It is an improved software architectural pattern over the MVC. One of the main aims of MVVM is Separation of Concerns (SOC). When SOC is achieved, the Unit Testing can be conducted much easier.  
 
 **Model, Utility, Extension, Service, View:** They are basically either stay the same or with minor changes.  
 To reduce the responsibility of View Controller, View Model layer is created.  
 **View Controller:** It will only interact with View Model and will not interact with Model and Service directly. It main function is to present data from View Model to show on UI or to get data from from UI and present to View Model.  
-**View Model:** Contains codes related to calling a Service, data manipulation and construct model.
+**View Model:** Contains codes related to business logic (eg: calling a Service, data manipulation and construct model).  
 
 
-I just started to use MVVM (together with RxSwift) about 1.5 years ago. I have developed this simple Todo app to showcase the iOS App development using 2 different software architectures. 
+## For MVVM + Coordinator
+Coordinator pattern has been added on top of MVVM to further remove the reponsibility related to app navigation from View Controller. Cooordinator classes will also be used to instantiate and inject dependencies for View Controller and View Model.  
+
+
+I just started to use MVVM (together with RxSwift) about 1.5 years ago. I have developed this simple Todo app to showcase the iOS App development using 2 different software architectures. Coordinator pattern and Unit Testing have been added on top of MVVM.
 
 This Todo Project have the following functions:-
 - Login
